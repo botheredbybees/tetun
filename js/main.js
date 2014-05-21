@@ -333,6 +333,7 @@ var CueCards=[[["bondia","good morning",0],
 var correctCards = 0;
 var direction = 't2e';
 var currentPage;
+var words2show = 1;
 $( document ).ready(function() {
     var pages = '';
     currentPage = Math.floor(Math.random() * (CueCards.length + 1));
@@ -346,7 +347,12 @@ $( document ).ready(function() {
 function init(page) {
     if(typeof(page)==='undefined') {
         page = currentPage;
+        words2show = 1;
     } else {
+        if (currentPage != page) {
+            // we're just starting on this page, so just show 1 pair to start off with
+            words2show = 1;
+        }
         currentPage = page;
     }
     $('.pagination li').removeClass('active');
@@ -366,14 +372,15 @@ function init(page) {
     $('#cardSlots').html( '' );
 
     var Cards = CueCards[page].slice(0);
-    //console.log(Cards);
+    Cards = Cards.slice(0,words2show);
+    console.log(Cards);
     Cards = shuffle(Cards);
     //console.log(Cards);
 
     // Create the pile of shuffled cards
     var numbers = [];
     var words = [];
-    for ( var i=0; i<10; i++ ) {
+    for ( var i=0; i<words2show; i++ ) {
         if (direction == 't2e') {
             numbers.push(Cards[i][0]);
             words.push(Cards[i][1]);
@@ -385,7 +392,7 @@ function init(page) {
     }
     
     var nums = [];
-    for (i=0; i<10; i++ ) {
+    for (i=0; i<words2show; i++ ) {
         $('<div>' + numbers[i] + '</div>').attr( 'word', words[i] ).attr( 'id', 'card'+i ).appendTo( '#cardPile' ).draggable( {
           containment: '#content',
           stack: '#cardPile div',
@@ -399,7 +406,7 @@ function init(page) {
     console.log(nums);
     // Create the card slots
 
-    for (i=0; i<10; i++ ) {
+    for (i=0; i<words2show; i++ ) {
         $(nums[i]).appendTo( '#cardSlots' ).droppable( {
           accept: '#cardPile div',
           hoverClass: 'hovered',
@@ -425,6 +432,7 @@ function handleCardDrop( event, ui ) {
     if ( slotNumber == cardNumber ) {
         ui.draggable.addClass( 'correct' );
         ui.draggable.draggable( 'disable' );
+        ui.draggable.text(ui.draggable.text()+' = '+$(this).text());
         $(this).droppable( 'disable' );
         ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
         ui.draggable.draggable( 'option', 'revert', false );
@@ -443,7 +451,12 @@ function handleCardDrop( event, ui ) {
           height: '100px',
           opacity: 1
         } );
+    } else if(correctCards == words2show) {
+        // we've got all the currently displayed cards, but haven't shown all 10 yet
+        ++words2show;
+        init(currentPage);
     }
+
  
 }
 function shuffle(cards) {
