@@ -7,10 +7,12 @@
 /* Add some margin to the page and set a default font and colour */
  
 body {
-  margin: 30px;
-  font-family: "Georgia", serif;
-  line-height: 1.8em;
-  color: #333;
+	margin: 30px;
+	font-family: "Georgia", serif;
+	line-height: 1.8em;
+	color: #333;
+	padding-top: 50px;
+	padding-bottom: 20px;
 }
  
 /* Give headings their own font */
