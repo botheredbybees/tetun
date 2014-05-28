@@ -355,16 +355,11 @@ function init(page) {
         }
         currentPage = page;
     }
+    $('#myModalLabel').text('Test set '+currentPage);
     $('.pagination li').removeClass('active');
     $('#p'+page).addClass('active');
     // Hide the success message
-    $('#successMessage').hide();
-    $('#successMessage').css( {
-    left: '580px',
-    top: '250px',
-    width: 0,
-    height: 0
-    } );
+    $('#successMessage').modal('hide');
 
     // Reset the game
     correctCards = 0;
@@ -373,7 +368,7 @@ function init(page) {
 
     var Cards = CueCards[page].slice(0);
     Cards = Cards.slice(0,words2show);
-    console.log(Cards);
+    //console.log(Cards);
     Cards = shuffle(Cards);
     //console.log(Cards);
 
@@ -401,9 +396,9 @@ function init(page) {
         } );
         nums.push('<div word="'+words[i]+'">' + words[i] + '</div>');
     }
-    console.log(nums);
+    //console.log(nums);
     nums = shuffle(nums);
-    console.log(nums);
+    //console.log(nums);
     // Create the card slots
 
     for (i=0; i<words2show; i++ ) {
@@ -419,6 +414,7 @@ function init(page) {
     } else {
         direction = 't2e';
     }
+    $('#matchingGame').modal('show');
 }
 function handleCardDrop( event, ui ) {
     var slotNumber = $(this).attr( 'word' );
@@ -430,9 +426,10 @@ function handleCardDrop( event, ui ) {
     // again
 
     if ( slotNumber == cardNumber ) {
-        ui.draggable.addClass( 'correct' );
+        //ui.draggable.addClass( 'correct' );
         ui.draggable.draggable( 'disable' );
         ui.draggable.text(ui.draggable.text()+' = '+$(this).text());
+        $(this).text(ui.draggable.text());
         $(this).droppable( 'disable' );
         ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
         ui.draggable.draggable( 'option', 'revert', false );
@@ -443,18 +440,15 @@ function handleCardDrop( event, ui ) {
     // and reset the cards for another go
 
     if ( correctCards == 10 ) {
-        $('#successMessage').show();
-        $('#successMessage').animate( {
-          left: '380px',
-          top: '200px',
-          width: '400px',
-          height: '100px',
-          opacity: 1
-        } );
+        $('#matchingGame').modal('hide');
+        $('#successMessage').modal('show');
     } else if(correctCards == words2show) {
         // we've got all the currently displayed cards, but haven't shown all 10 yet
         ++words2show;
-        init(currentPage);
+        setTimeout(function (){
+             init(currentPage);
+         }, 500);  
+        
     }
 
  

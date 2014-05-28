@@ -64,7 +64,6 @@ h1, h2, h3, h4 {
 }
  
 #cardSlots, #cardPile {
-  width: 90%;
   padding: 20px;
   border: 2px solid #333;
   -moz-border-radius: 10px;
@@ -78,7 +77,6 @@ h1, h2, h3, h4 {
 /* Individual cards and slots */
  
 #cardSlots div, #cardPile div {
-  width: 95%;
   height: 7%;
   padding: 10px;
   margin-top: 40px;
@@ -86,7 +84,7 @@ h1, h2, h3, h4 {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  margin: 3px 0 0 10px;
+  margin-top: 3px;
   background: #fff;
 }
  
@@ -114,16 +112,16 @@ h1, h2, h3, h4 {
  
 /* Individually coloured cards */
  
-#card1.correct { background: red; }
-#card2.correct { background: brown; }
-#card3.correct { background: orange; }
-#card4.correct { background: yellow; }
-#card5.correct { background: green; }
-#card6.correct { background: cyan; }
-#card7.correct { background: blue; }
-#card8.correct { background: indigo; }
-#card9.correct { background: purple; }
-#card10.correct { background: violet; }
+#card1.correct { background: rgb(0,200,0); }
+#card2.correct { background:  rgb(0,200,0); }
+#card3.correct { background:  rgb(0,200,0); }
+#card4.correct { background:  rgb(0,200,0); }
+#card5.correct { background:  rgb(0,200,0); }
+#card6.correct { background:  rgb(0,200,0); }
+#card7.correct { background:  rgb(0,200,0); }
+#card8.correct { background:  rgb(0,200,0); }
+#card9.correct { background:  rgb(0,200,0); }
+#card10.correct { background:  rgb(0,200,0); }
  
  
 /* "You did it!" message */
