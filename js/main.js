@@ -385,14 +385,16 @@ var correctCards = 0;
 var direction = 't2e';
 var currentPage;
 var words2show = 1;
+var score = 0;
+var getCards;
 $( document ).ready(function() {
     var pages = '';
-    currentPage = Math.floor(Math.random() * (CueCards.length + 1));
+    words2show = 1;
+    currentPage = -1;
     for (var i=0; i<CueCards.length; ++i) {
         pages += '<li id="p'+i+'"><a href="#" onclick="init('+i+')">'+(i+1)+'</a></li>';
     }
     $('.pagination').html(pages);
-    //init(currentPage);
 });
 
 function init(page) {
@@ -403,10 +405,13 @@ function init(page) {
         if (currentPage != page) {
             // we're just starting on this page, so just show 1 pair to start off with
             words2show = 1;
+            score = 0;
         }
         currentPage = page;
     }
     $('#myModalLabel').text(units[currentPage][0]+' - '+units[currentPage][1]);
+    $('#finalbutton').text('Play "'+units[currentPage][1]+'" again');
+    
     $('.pagination li').removeClass('active');
     $('#p'+page).addClass('active');
     // Hide the success message
@@ -417,12 +422,18 @@ function init(page) {
     $('#cardPile').html( '' );
     $('#cardSlots').html( '' );
 
-    var Cards = CueCards[page].slice(0);
-    Cards = Cards.slice(0,words2show);
+    
     //console.log(Cards);
+    if (words2show == 1) {
+        getCards = CueCards[page].slice(0);
+        //console.log(getCards);
+        getCards = shuffle(getCards);
+        //console.log(getCards);
+    }
+    //console.log(Cards);
+    var Cards = getCards.slice(0,words2show);
     Cards = shuffle(Cards);
     //console.log(Cards);
-
     // Create the pile of shuffled cards
     var numbers = [];
     var words = [];
@@ -470,6 +481,7 @@ function init(page) {
 function handleCardDrop( event, ui ) {
     var slotNumber = $(this).attr( 'word' );
     var cardNumber = ui.draggable.attr( 'word' );
+    var finalmsg = '';
 
     // If the card was dropped to the correct slot,
     // change the card colour, position it directly
@@ -483,20 +495,47 @@ function handleCardDrop( event, ui ) {
         ui.draggable.draggable( 'option', 'revert', false );        
         ui.draggable.hide();
         correctCards++;
-    } 
+        score += 1.81818182;
+    } else {
+        score -= 1;
+    }
+    if (score > 100) { 
+        score = 100;
+    }
+    progress(parseInt(score), $('#progressBar'));
 
     // If all the cards have been placed correctly then display a message
     // and reset the cards for another go
 
-    if ( correctCards == 10 ) {
-        $('#matchingGame').modal('hide');
-        $('#successMessage').modal('show');
+    if ( correctCards == 10 ) { 
+        setTimeout(function (){
+        }, 500);
+        $('#matchingGame').on('hide.bs.modal', function() {
+            //console.log('hid matchingGame modal');
+            if(correctCards==10) {
+                $('#successMessage').modal('show');
+            }
+        }).modal('hide');
+        if (score<50) {
+            finalmsg = 'Score: '+parseInt(score)+'%<br>Struggle on brave student...';
+        } else if (score<70) {
+            finalmsg = 'Score: '+parseInt(score)+"%<br>Not bad, you could probably fake it for this topic, but a bit more practice wouldn't hurt";
+        } else if (score < 99) {
+            finalmsg = 'Score: '+parseInt(score)+"% <br>Way to go! Don't forget to come back in a day or two so you wire up those synapses for good";
+        } else {
+            finalmsg = 'Score: '+parseInt(score)+'% <br>Tetun ninja!';
+        }
+        $('#finalScore').html(finalmsg);
+        score = 0;
+        correctCards = 0;
+        words2show = 1;
+        
     } else if(correctCards == words2show) {
         // we've got all the currently displayed cards, but haven't shown all 10 yet
         ++words2show;
         setTimeout(function (){
              init(currentPage);
-         }, 500);  
+         }, 600);  
         
     }
 
@@ -521,4 +560,8 @@ function shuffle(cards) {
     }
   }
   return cards;
+}
+function progress(percent, $element) {
+    var progressBarWidth = percent * $element.width() / 100;
+    $element.find('div').animate({ width: progressBarWidth }, 500).html(percent + "%&nbsp;");
 }
