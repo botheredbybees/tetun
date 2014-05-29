@@ -112,16 +112,16 @@ h1, h2, h3, h4 {
  
 /* Individually coloured cards */
  
-#card1.correct { background: rgb(0,200,0); }
-#card2.correct { background:  rgb(0,200,0); }
-#card3.correct { background:  rgb(0,200,0); }
-#card4.correct { background:  rgb(0,200,0); }
-#card5.correct { background:  rgb(0,200,0); }
-#card6.correct { background:  rgb(0,200,0); }
-#card7.correct { background:  rgb(0,200,0); }
-#card8.correct { background:  rgb(0,200,0); }
-#card9.correct { background:  rgb(0,200,0); }
-#card10.correct { background:  rgb(0,200,0); }
+#card1.correct { background: #8AE65C !important; }
+#card2.correct { background:  #8AE65C !important; }
+#card3.correct { background:  #8AE65C !important; }
+#card4.correct { background:  #8AE65C !important; }
+#card5.correct { background:  #8AE65C !important; }
+#card6.correct { background:  #8AE65C !important; }
+#card7.correct { background:  #8AE65C !important; }
+#card8.correct { background:  #8AE65C !important; }
+#card9.correct { background:  #8AE65C !important; }
+#card10.correct { background:  #8AE65C !important; }
  
  
 /* "You did it!" message */
@@ -153,6 +153,9 @@ h1, h2, h3, h4 {
 
 .correct {
 	cursor: default;
+  background: #8AE65C !important; 
+  border-style: solid !important;
+  border-color: #CCFF66;
 }
 .topic a {
   color: #398028;

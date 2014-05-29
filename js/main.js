@@ -392,7 +392,7 @@ $( document ).ready(function() {
         pages += '<li id="p'+i+'"><a href="#" onclick="init('+i+')">'+(i+1)+'</a></li>';
     }
     $('.pagination').html(pages);
-    init(currentPage);
+    //init(currentPage);
 });
 
 function init(page) {
@@ -406,7 +406,7 @@ function init(page) {
         }
         currentPage = page;
     }
-    $('#myModalLabel').text('Test set '+currentPage);
+    $('#myModalLabel').text(units[currentPage][0]+' - '+units[currentPage][1]);
     $('.pagination li').removeClass('active');
     $('#p'+page).addClass('active');
     // Hide the success message
@@ -477,13 +477,11 @@ function handleCardDrop( event, ui ) {
     // again
 
     if ( slotNumber == cardNumber ) {
-        //ui.draggable.addClass( 'correct' );
-        ui.draggable.draggable( 'disable' );
-        ui.draggable.text(ui.draggable.text()+' = '+$(this).text());
-        $(this).text(ui.draggable.text());
+        $(this).text(ui.draggable.text()+' = '+$(this).text());
         $(this).droppable( 'disable' );
-        ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
-        ui.draggable.draggable( 'option', 'revert', false );
+        $(this).addClass( 'correct' );
+        ui.draggable.draggable( 'option', 'revert', false );        
+        ui.draggable.hide();
         correctCards++;
     } 
 
