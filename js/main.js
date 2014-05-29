@@ -305,7 +305,7 @@ var CueCards=[[["bondia","good morning",0],
     ["atividade","activity",0],
     ["foin","only just, very recently",0],
     ["hela","currently (CONTINUOUS)",0],
-    ["nusaa?","what&apos;s up? why?",0],
+    ["nusaa?","what is happening? why?",0],
     ["fali","again, back",0],
     ["fila fali","return; again",0]],[
     ["hahaan","food",0],
@@ -330,6 +330,57 @@ var CueCards=[[["bondia","good morning",0],
     ["lai","first (before something else)",0]]];
 //console.log(CueCards.length+" elements in the cue cards array");
 //console.log(CueCards);
+var units=[ ['Hasee malu','Greetings I','greetings'],
+    ['Hasee malu','Greetings II','greetings'],
+    ['Lisensa!','Excuse me I','excuseme'],
+    ['Lisensa!','Excuse me II','excuseme'],
+    ['Lisensa!','Excuse me III','excuseme'],
+    ['Aprende','Learning I','learning'],
+    ['Aprende','Learning II','learning'],
+    ['Ita halo saida?','What are you doing? I','doing'],
+    ['Ita halo saida?','What are you doing? II','doing'],
+    ['Bainhira?','When? I','when'],
+    ['Bainhira?','When? II','when'],
+    ['Bainhira?','When? III','when'],
+    ['Númeru ho oras','Numbers and time I','numbers'],
+    ['Númeru ho oras','Numbers and time II','numbers'],
+    ['Númeru ho oras','Numbers and time III','numbers'],
+    ['Númeru ho oras','Numbers and time IV','numbers'],
+    ['Númeru ho oras','Numbers and time V','numbers'],
+    ['Eskola','School I','school'],
+    ['Eskola','School II','school'],
+    ['Eskola','School III','school'],
+    ['Hatudu dalan','Giving directions I','directions'],
+    ['Hatudu dalan','Giving directions II','directions'],
+    ['Hatudu dalan','Giving directions III','directions'],
+    ['Uma kain','Household I','household'],
+    ['Uma kain','Household II','household'],
+    ['Uma kain','Household III','household'],
+    ['Halo planu','Making plans I','plans'],
+    ['Halo planu','Making plans II','plans'],
+    ['Halo planu','Making plans III','plans'],
+    ['Atividade loro-loron nian','Daily activities I','activities'],
+    ['Atividade loro-loron nian','Daily activities II','activities'],
+    ['Ita haan lai!',"Let's eat! I",'eat'],
+    ['Ita haan lai!',"Let's eat! II",'eat']
+];
+// topics: tetun name, english name, font awesome icon name, number of pages
+// the pages correspond to the cueCards array order
+var topics=[    ['Hasee malu','Greetings','greetings',2],
+    ['Lisensa!','Excuse me','excuseme',3],
+    ['Aprende','Learning','learning',2],
+    ['Ita halo saida?','What are you doing?','doing',2],
+    ['Bainhira?','When?','when',3],
+    ['Númeru ho oras','Numbers and time','numbers',5],
+    ['Eskola','School','school',3],
+    ['Hatudu dalan','Giving directions','directions',3],
+    ['Uma kain','Household','household',3],
+    ['Halo planu','Making plans','plans',3],
+    ['Atividade loro-loron nian','Daily activities','activities',2],
+    ['Ita haan lai!',"Let's eat!",'eat',2]
+];
+// I'm currently not sure whether I'll use the units or topics array, so they're both here for now
+
 var correctCards = 0;
 var direction = 't2e';
 var currentPage;
