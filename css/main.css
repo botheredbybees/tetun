@@ -140,8 +140,16 @@ h1, h2, h3, h4 {
   border-color: #CCFF66;
 }
 .topic a {
-  color: #398028;
+  color: #000;
   font-weight: bold;
+  opacity:0.3;
+  filter:alpha(opacity=30); /* For IE8 and earlier */
+}
+.topic a:hover {
+  color: #999;
+  opacity:1;
+  text-decoration: none;
+  filter:alpha(opacity=100); /* For IE8 and earlier */
 }
 .disabled-icon {
   color: #999;
@@ -173,9 +181,9 @@ h1, h2, h3, h4 {
   text-align: center;
 }
 
-
-
-
+.ui-icon {
+  margin-bottom: -25px;
+}
 
 
 
