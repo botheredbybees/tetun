@@ -520,10 +520,19 @@ function handleCardDrop( event, ui ) {
             finalmsg = 'Score: '+parseInt(score)+'%<br>Struggle on brave student...';
         } else if (score<70) {
             finalmsg = 'Score: '+parseInt(score)+"%<br>Not bad, you could probably fake it for this topic, but a bit more practice wouldn't hurt";
+            $('#img'+currentPage).removeClass('ui-icon');
         } else if (score < 99) {
             finalmsg = 'Score: '+parseInt(score)+"% <br>Way to go! Don't forget to come back in a day or two so you wire up those synapses for good";
+            $('#img'+currentPage).attr('src',$('#img'+currentPage).attr('src').replace('_disabled','_finished'));
+            $('#topic'+currentPage).addClass('finished');
+            $('#img'+currentPage).removeClass('ui-icon');
         } else {
             finalmsg = 'Score: '+parseInt(score)+'% <br>Tetun ninja!';
+            $('#img'+currentPage).attr('src',$('#img'+currentPage).attr('src').replace('_disabled','_ninja'));
+            $('#img'+currentPage).attr('src',$('#img'+currentPage).attr('src').replace('_finished','_ninja'));
+            $('#topic'+currentPage).removeClass('finished');
+            $('#topic'+currentPage).addClass('ninja');
+            $('#img'+currentPage).removeClass('ui-icon');
         }
         $('#finalScore').html(finalmsg);
         score = 0;
