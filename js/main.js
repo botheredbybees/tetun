@@ -379,7 +379,7 @@ var topics=[    ['Hasee malu','Greetings','greetings',2],
     ['Atividade loro-loron nian','Daily activities','activities',2],
     ['Ita haan lai!',"Let's eat!",'eat',2]
 ];
-// I'm currently not sure whether I'll use the units or topics array, so they're both here for now
+var progressArray = []; // this will get set to 0 for unstarted, 1 for started but scoring less than 50%, 2 for score 50 to 70, 3 50 to 99, 4 = 100%
 
 var correctCards = 0;
 var direction = 't2e';
@@ -399,6 +399,16 @@ $( document ).ready(function() {
     // and the main page content
     var topicnum = 0;
     var content = '';
+    // get any progress
+    if (typeof $.cookie('progress') === 'undefined'){
+        //no cookie
+        for(i=0;i<CueCards.length; ++i) {
+            progressArray.push(0);
+        }
+    } else {
+        //have cookie
+        progressArray = JSON.parse($.cookie('progress'));
+    }       
     for(i=0;i<topics.length;++i) {
         if(i%6==0) { 
             if(i==0) {
@@ -415,7 +425,19 @@ $( document ).ready(function() {
         for(j=0;j<topics[i][3];++j) {
             content+='<p class="text-center topic" id="topic'+topicnum+'">';
             content+='        <a href="#" onclick="init('+topicnum+');">';
-            content+='          <img src="images/'+topics[i][2]+'_disabled.png" alt="'+topics[i][2]+'"class="ui-icon" id="img'+topicnum+'"><br>';
+            content+='          <img src="images/'+topics[i][2];
+            switch(progressArray[currentPage]) {
+            case 4:
+                content+='_ninja';
+                break;
+            case 3:
+                content+='_finished';
+                break;
+            default:
+                content+='_disabled';
+            }
+            
+            content+='.png" alt="'+topics[i][2]+'"class="ui-icon" id="img'+topicnum+'"><br>';
             content+=topics[i][1]+' '+(j+1)+'</a></p>';
             topicnum +=1;
         }
@@ -546,14 +568,20 @@ function handleCardDrop( event, ui ) {
         }).modal('hide');
         if (score<50) {
             finalmsg = 'Score: '+parseInt(score)+'%<br>Struggle on brave student...';
+            progressArray[currentPage] = 1;
+            $.cookie('progress', JSON.stringify(progressArray));
         } else if (score<70) {
             finalmsg = 'Score: '+parseInt(score)+"%<br>Not bad, you could probably fake it for this topic, but a bit more practice wouldn't hurt";
             $('#img'+currentPage).removeClass('ui-icon');
+            progressArray[currentPage] = 2;
+            $.cookie('progress', JSON.stringify(progressArray));
         } else if (score < 99) {
-            finalmsg = 'Score: '+parseInt(score)+"% <br>Way to go! Don't forget to come back in a day or two so you wire up those synapses for good";
+            finalmsg = 'Score: '+parseInt(score)+"% <br>Way to go! Don't forget to come back in a day or two to wire those synapses for good";
             $('#img'+currentPage).attr('src',$('#img'+currentPage).attr('src').replace('_disabled','_finished'));
             $('#topic'+currentPage).addClass('finished');
             $('#img'+currentPage).removeClass('ui-icon');
+            progressArray[currentPage] = 3;
+            $.cookie('progress', JSON.stringify(progressArray));
         } else {
             finalmsg = 'Score: '+parseInt(score)+'% <br>Tetun ninja!';
             $('#img'+currentPage).attr('src',$('#img'+currentPage).attr('src').replace('_disabled','_ninja'));
@@ -561,6 +589,8 @@ function handleCardDrop( event, ui ) {
             $('#topic'+currentPage).removeClass('finished');
             $('#topic'+currentPage).addClass('ninja');
             $('#img'+currentPage).removeClass('ui-icon');
+            progressArray[currentPage] = 4;
+            $.cookie('progress', JSON.stringify(progressArray));
         }
         $('#finalScore').html(finalmsg);
         score = 0;
