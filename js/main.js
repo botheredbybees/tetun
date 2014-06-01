@@ -386,15 +386,43 @@ var direction = 't2e';
 var currentPage;
 var words2show = 1;
 var score = 0;
-var getCards;
+var getCards, i, j;
 $( document ).ready(function() {
     var pages = '';
     words2show = 1;
     currentPage = -1;
-    for (var i=0; i<CueCards.length; ++i) {
+    // build the naviagation bar
+    for (i=0; i<CueCards.length; ++i) {
         pages += '<li id="p'+i+'"><a href="#" onclick="init('+i+')">'+(i+1)+'</a></li>';
     }
     $('.pagination').html(pages);
+    // and the main page content
+    var topicnum = 0;
+    var content = '';
+    for(i=0;i<topics.length;++i) {
+        if(i%6==0) { 
+            if(i==0) {
+                content = '<div class="row">';
+            } else {
+                content+='</div><hr>';
+                content+='<div class="clearfix visible-xs"></div>';        
+                content+='<div class="clearfix visible-sm"></div>';
+                content+='<div class="clearfix visible-md"></div>';
+                content+='<div class="row">';
+            }
+        }
+        content+='<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">';
+        for(j=0;j<topics[i][3];++j) {
+            content+='<p class="text-center topic" id="topic'+topicnum+'">';
+            content+='        <a href="#" onclick="init('+topicnum+');">';
+            content+='          <img src="images/'+topics[i][2]+'_disabled.png" alt="'+topics[i][2]+'"class="ui-icon" id="img'+topicnum+'"><br>';
+            content+=topics[i][1]+' '+(j+1)+'</a></p>';
+            topicnum +=1;
+        }
+        content+='</div>';
+    }
+    content+='</div><hr>';
+    $("#container").html(content);
 });
 
 function init(page) {
