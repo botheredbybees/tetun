@@ -405,8 +405,10 @@ $( document ).ready(function() {
         for(i=0;i<CueCards.length; ++i) {
             progressArray.push(0);
         }
+        $.cookie('progress', JSON.stringify(progressArray), { expires: 356 });
     } else {
         //have cookie
+        console.log('found my cookie');
         progressArray = JSON.parse($.cookie('progress'));
     }       
     for(i=0;i<topics.length;++i) {
@@ -423,22 +425,39 @@ $( document ).ready(function() {
         }
         content+='<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">';
         for(j=0;j<topics[i][3];++j) {
-            content+='<p class="text-center topic" id="topic'+topicnum+'">';
-            content+='        <a href="#" onclick="init('+topicnum+');">';
-            content+='          <img src="images/'+topics[i][2];
-            switch(progressArray[currentPage]) {
+            switch(progressArray[topicnum]) {
             case 4:
+                content+='<p class="text-center topic ninja" id="topic'+topicnum+'">';
+                content+='        <a href="#" onclick="init('+topicnum+');">';
+                content+='          <img src="images/'+topics[i][2];
                 content+='_ninja';
+                content+='.png" alt="'+topics[i][2]+'" id="img'+topicnum+'"><br>';
+                content+=topics[i][1]+' '+(j+1)+'</a></p>';
                 break;
             case 3:
+                content+='<p class="text-center topic finished" id="topic'+topicnum+'">';
+                content+='        <a href="#" onclick="init('+topicnum+');">';
+                content+='          <img src="images/'+topics[i][2];
                 content+='_finished';
+                content+='.png" alt="'+topics[i][2]+'" id="img'+topicnum+'"><br>';
+                content+=topics[i][1]+' '+(j+1)+'</a></p>';
+                break;
+            case 2:
+                content+='<p class="text-center topic" id="topic'+topicnum+'">';
+                content+='        <a href="#" onclick="init('+topicnum+');">';
+                content+='          <img src="images/'+topics[i][2];
+                content+='_finished';
+                content+='.png" alt="'+topics[i][2]+'" id="img'+topicnum+'"><br>';
+                content+=topics[i][1]+' '+(j+1)+'</a></p>';
                 break;
             default:
+                content+='<p class="text-center topic" id="topic'+topicnum+'">';
+                content+='        <a href="#" onclick="init('+topicnum+');">';
+                content+='          <img src="images/'+topics[i][2];
                 content+='_disabled';
-            }
-            
-            content+='.png" alt="'+topics[i][2]+'"class="ui-icon" id="img'+topicnum+'"><br>';
-            content+=topics[i][1]+' '+(j+1)+'</a></p>';
+                content+='.png" alt="'+topics[i][2]+'" class="ui-icon" id="img'+topicnum+'"><br>';
+                content+=topics[i][1]+' '+(j+1)+'</a></p>';
+            }                
             topicnum +=1;
         }
         content+='</div>';
@@ -569,19 +588,19 @@ function handleCardDrop( event, ui ) {
         if (score<50) {
             finalmsg = 'Score: '+parseInt(score)+'%<br>Struggle on brave student...';
             progressArray[currentPage] = 1;
-            $.cookie('progress', JSON.stringify(progressArray));
+            $.cookie('progress', JSON.stringify(progressArray), { expires: 356 });
         } else if (score<70) {
             finalmsg = 'Score: '+parseInt(score)+"%<br>Not bad, you could probably fake it for this topic, but a bit more practice wouldn't hurt";
             $('#img'+currentPage).removeClass('ui-icon');
             progressArray[currentPage] = 2;
-            $.cookie('progress', JSON.stringify(progressArray));
+            $.cookie('progress', JSON.stringify(progressArray), { expires: 356 });
         } else if (score < 99) {
             finalmsg = 'Score: '+parseInt(score)+"% <br>Way to go! Don't forget to come back in a day or two to wire those synapses for good";
             $('#img'+currentPage).attr('src',$('#img'+currentPage).attr('src').replace('_disabled','_finished'));
             $('#topic'+currentPage).addClass('finished');
             $('#img'+currentPage).removeClass('ui-icon');
             progressArray[currentPage] = 3;
-            $.cookie('progress', JSON.stringify(progressArray));
+            $.cookie('progress', JSON.stringify(progressArray), { expires: 356 });
         } else {
             finalmsg = 'Score: '+parseInt(score)+'% <br>Tetun ninja!';
             $('#img'+currentPage).attr('src',$('#img'+currentPage).attr('src').replace('_disabled','_ninja'));
@@ -590,7 +609,7 @@ function handleCardDrop( event, ui ) {
             $('#topic'+currentPage).addClass('ninja');
             $('#img'+currentPage).removeClass('ui-icon');
             progressArray[currentPage] = 4;
-            $.cookie('progress', JSON.stringify(progressArray));
+            $.cookie('progress', JSON.stringify(progressArray), { expires: 356 });
         }
         $('#finalScore').html(finalmsg);
         score = 0;
