@@ -39,3 +39,30 @@ button, input { font: inherit; }
 #tabs button[aria-current="page"] { background: var(--green); border-color: var(--green); color: #fff; }
 .banner { position: fixed; left: .5rem; right: .5rem; bottom: 4.75rem; padding: .75rem; background: var(--ink); color: #fff; border-radius: .5rem; }
 .banner button { margin-left: .75rem; min-height: 2.75rem; }
+.practise-topic .lessons { display: grid; gap: .5rem; grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); }
+.lesson, .result button, .exit {
+  min-height: 3rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--soft);
+  color: inherit; cursor: pointer; padding: .5rem .75rem; font-weight: 600;
+}
+.lesson { display: flex; flex-direction: column; align-items: flex-start; gap: .25rem; text-align: left; }
+.lesson.level-4 { background: #fff4c9; border-color: #d9b73e; }
+.lesson.missed { width: 100%; margin-bottom: .5rem; background: #ffe9e4; border-color: #e0a79b; }
+.game-head { display: flex; justify-content: space-between; align-items: center; gap: .5rem; }
+.game-head h2 { margin: 0; }
+.bar { position: relative; height: 1.75rem; margin: .75rem 0 .25rem; background: var(--soft); border: 1px solid var(--line); border-radius: .5rem; overflow: hidden; }
+.bar .fill { height: 100%; width: 0; background: #8cc9b5; transition: width .3s; }
+.bar-text { position: absolute; inset: 0; display: grid; place-items: center; font-size: .875rem; font-weight: 600; }
+.round { margin: .25rem 0 .75rem; color: #4a5c56; }
+.board { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.col { display: grid; gap: .5rem; align-content: start; }
+.card {
+  min-height: 3.5rem; padding: .5rem; border: 2px solid var(--line); border-radius: .5rem; background: #fff;
+  color: inherit; font-size: 1rem; cursor: pointer; overflow-wrap: anywhere;
+}
+.card.selected { border-color: var(--green); background: var(--soft); }
+.card.matched { background: #d9f0e6; border-color: #8cc9b5; color: #4a5c56; cursor: default; }
+.card.wrong { background: #ffd9d2; border-color: #d8715d; }
+.result { text-align: center; margin-top: 1.5rem; }
+.result .score { font-size: 1.5rem; font-weight: 700; }
+.result button { display: block; width: 100%; margin-top: .5rem; }
+.result button.primary { background: var(--green); border-color: var(--green); color: #fff; }

@@ -16,6 +16,9 @@ export function isMatch(a, b) {
   return a.id === b.id || a.english === b.english;
 }
 
+// Removes the floating-point drift from adding 55 fractional points, so a perfect game is exactly 100.
+const tidy = (score) => Math.round(score * 1e6) / 1e6;
+
 function shuffled(list, rng) {
   const out = list.slice();
   for (let i = out.length - 1; i > 0; i--) {
@@ -37,11 +40,17 @@ export class LessonGame {
     this._answers = null;
     this._matchedPrompts = new Set();
     this._usedAnswers = new Set();
+    this._missedThisRound = new Set();
     this.total = entries.length;
     this.round = 1;
-    this.score = 0;
+    this._score = 0;
     this.misses = [];
     this.finished = false;
+  }
+
+  /** Score from 0 to 100. */
+  get score() {
+    return tidy(this._score);
   }
 
   get level() {
@@ -68,18 +77,20 @@ export class LessonGame {
       throw new RangeError('already matched');
     }
     const correct = isMatch(prompt, answer);
+    const firstTry = correct && !this._missedThisRound.has(promptId);
     if (correct) {
       this._matchedPrompts.add(promptId);
       this._usedAnswers.add(answerId);
-      this.score = Math.min(100, this.score + pointsPerMatch(this.total));
+      this._score = Math.min(100, this._score + pointsPerMatch(this.total));
     } else {
-      this.score = Math.max(0, this.score - 1);
+      this._score = Math.max(0, this._score - 1);
       this.misses.push(promptId);
+      this._missedThisRound.add(promptId);
     }
     const roundDone = this._matchedPrompts.size === this.round;
     const lessonDone = roundDone && this.round === this.total;
     if (lessonDone) this.finished = true;
-    return { correct, roundDone, lessonDone };
+    return { correct, firstTry, roundDone, lessonDone };
   }
 
   nextRound() {
@@ -90,5 +101,6 @@ export class LessonGame {
     this._answers = null;
     this._matchedPrompts = new Set();
     this._usedAnswers = new Set();
+    this._missedThisRound = new Set();
   }
 }

@@ -2,6 +2,7 @@ import { h } from './dom.js';
 import { loadWords } from './data.js';
 import { loadProgress, saveProgress } from './progress.js';
 import { renderPhrasebook } from './views/phrasebook.js';
+import { renderPractise } from './views/practise.js';
 
 const root = document.getElementById('view');
 
@@ -27,7 +28,7 @@ export const store = {
 let data = null;
 const views = {
   phrasebook: () => renderPhrasebook(root, data),
-  practise: () => root.replaceChildren(h('p', {}, 'Practise is coming soon.')),
+  practise: () => renderPractise(root, data, store),
 };
 
 export function showView(name) {

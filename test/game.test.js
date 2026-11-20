@@ -49,7 +49,7 @@ test('a 1-pair game finishes after one correct submit with score 100', () => {
   const game = new LessonGame(make(1), seeded(1));
   const { prompts } = game.deal();
   const result = game.submit(prompts[0].id, prompts[0].id);
-  assert.deepEqual(result, { correct: true, roundDone: true, lessonDone: true });
+  assert.deepEqual(result, { correct: true, firstTry: true, roundDone: true, lessonDone: true });
   near(game.score, 100);
 });
 
@@ -149,4 +149,28 @@ test('a seeded rng gives a repeatable deal and the input array is not mutated', 
 test('submit rejects ids outside the current round', () => {
   const game = new LessonGame(make(3), seeded(8));
   assert.throws(() => game.submit('nope', 'nope'), RangeError);
+});
+
+test('a perfect game scores exactly 100 for every lesson length, with no floating-point shortfall', () => {
+  for (let n = 1; n <= 12; n++) {
+    const game = playPerfect(new LessonGame(make(n), seeded(n)));
+    assert.equal(game.score, 100, `n=${n} gave ${game.score}`);
+  }
+});
+
+test('firstTry is true only for a correct match with no earlier miss on that prompt in the same round', () => {
+  const game = new LessonGame(make(10), seeded(9));
+  const r1 = game.deal().prompts[0];
+  assert.equal(game.submit(r1.id, r1.id).firstTry, true);
+  game.nextRound();
+  const { prompts, answers } = game.deal();
+  const [p1, p2] = prompts;
+  const wrongAnswer = answers.find((a) => a.id !== p1.id);
+  const miss = game.submit(p1.id, wrongAnswer.id);
+  assert.equal(miss.correct, false);
+  assert.equal(miss.firstTry, false);
+  assert.equal(game.submit(p1.id, p1.id).firstTry, false);
+  assert.equal(game.submit(p2.id, p2.id).firstTry, true);
+  game.nextRound();
+  for (const p of game.deal().prompts) assert.equal(game.submit(p.id, p.id).firstTry, true);
 });
