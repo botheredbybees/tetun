@@ -8,8 +8,7 @@ const sw = read('sw.js');
 const urls = JSON.parse(sw.match(/const PRECACHE_URLS = (\[[\s\S]*?\]);/)[1]);
 const manifest = JSON.parse(read('manifest.webmanifest'));
 const words = JSON.parse(read('content/words.json'));
-const LEGACY = new Set(['main.js', 'jquery.cookie.js']); // old jQuery game, removed in Task 8
-const jsIn = (dir) => readdirSync(new URL(dir, root)).filter((f) => f.endsWith('.js') && !LEGACY.has(f)).map((f) => dir + f);
+const jsIn = (dir) => readdirSync(new URL(dir, root)).filter((f) => f.endsWith('.js')).map((f) => dir + f);
 
 test('every precached URL exists on disk', () => {
   for (const url of urls) {

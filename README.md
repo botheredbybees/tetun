@@ -1,6 +1,6 @@
 # Tetun
 
-A small browser game for learning everyday Tetun, the national language of Timor-Leste.
+A phone-friendly phrasebook and practice game for everyday Tetun, the national language of Timor-Leste. Once it has loaded it keeps working without a signal.
 
 ## Why it exists
 
@@ -8,7 +8,7 @@ Before taking my two sons to Timor-Leste for a motorcycle holiday, I wanted enou
 
 ## How it works
 
-The vocabulary is grouped into 11 topics and 31 lessons, with 330 Tetun and English word pairs in all:
+The vocabulary is grouped into 12 topics and 33 lessons, with 330 Tetun and English word pairs in all:
 
 - Hasee malu (Greetings)
 - Lisensa! (Excuse me)
@@ -21,12 +21,15 @@ The vocabulary is grouped into 11 topics and 31 lessons, with 330 Tetun and Engl
 - Uma kain (Household)
 - Halo planu (Making plans)
 - Atividade loro-loron nian (Daily activities)
+- Ita haan lai! (Let's eat!)
 
-Each lesson is a drag-and-drop matching game. The first round shows a single pair, and every round after that adds another until ten are on the table. The direction flips each round, Tetun to English and then English to Tetun, so you learn to recognise a word and to produce it. Correct matches fill a progress bar and wrong drops cost a point, and your progress through each lesson is saved in a browser cookie so you can pick up where you left off.
+**Phrasebook.** Search in Tetun or English, with or without accents and capitals, or browse by topic. Tap a word for a large view, with a link to report a mistake.
+
+**Practise.** Each lesson is a tap-to-match game: tap a word, then its match. The first round shows one pair and every round after that adds another until the whole lesson is on the table. The direction flips each round, Tetun to English and then English to Tetun. Correct matches fill the progress bar and a wrong tap costs a point. Your best result for each lesson is saved on your phone, and words you keep getting wrong are collected under "Words I keep missing".
 
 ## Running it
 
-There is no build step or server code. Clone the repository and open `index.html` in a browser, or serve the folder from any static web host.
+It uses ES modules and a service worker, so it has to be served over HTTP; opening `index.html` straight from disk will not work. There is no build step.
 
 ```bash
 git clone https://github.com/botheredbybees/tetun.git
@@ -34,17 +37,26 @@ cd tetun
 python3 -m http.server 8000   # then browse to http://localhost:8000
 ```
 
-## Built with
+Visit it once while online and it is cached for offline use. When a new version is released a banner offers to reload into it. Service workers need HTTPS, except on `localhost`.
 
-- HTML, CSS and JavaScript
-- jQuery and jQuery UI for the drag-and-drop cards
-- Bootstrap for layout and modal dialogues
-- jquery.cookie for saving progress
+## Tests
+
+```bash
+npm test
+```
+
+This uses Node's built-in test runner (Node 18 or newer) and has no dependencies. It covers the data file, search, game rules, saved progress and the offline file list. The screens and the service worker are checked by hand in a browser.
 
 ## Data
 
-The word lists live in `js/main.js` as the `CueCards` array, with one sub-array per lesson. Adding a lesson means adding another block of word pairs there and an entry in the `units` and `topics` arrays. The `data/` folder holds the source material the lists were built from, including a Tetun to English lexicon and CSV exports.
+The word lists live in `content/words.json`: `topics`, `lessons` and `entries`. To add a word, append an entry with the next id (`w331`), its `topic` and its `lesson` number, then run `npm test`. The `data/` folder holds the source material the lists were built from.
 
-## A note on accuracy
+## Built with
 
-These lists were put together by a learner, for a learner. Corrections from Tetun speakers are very welcome, so please open an issue or a pull request.
+Plain HTML, CSS and JavaScript (ES modules), a service worker and a web app manifest. No frameworks and no dependencies.
+
+## A note on accuracy and credit
+
+These lists were put together by a learner, for a learner. Corrections from Tetun speakers are very welcome, so please open an issue or a pull request, or use "Report a mistake" in the app.
+
+The words come from the Tetun-English interactive dictionary by Catharina Williams-van Klinken, © Dili Institute of Technology. The licence for the word data has not yet been agreed with its author, so until it is, please do not treat the word list as free to reuse.
