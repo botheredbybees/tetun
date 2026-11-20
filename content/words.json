@@ -1,0 +1,2588 @@
+{
+  "topics": [
+    {
+      "id": "greetings",
+      "tetun": "Hasee malu",
+      "english": "Greetings",
+      "icon": "greetings"
+    },
+    {
+      "id": "excuseme",
+      "tetun": "Lisensa!",
+      "english": "Excuse me",
+      "icon": "excuseme"
+    },
+    {
+      "id": "learning",
+      "tetun": "Aprende",
+      "english": "Learning",
+      "icon": "learning"
+    },
+    {
+      "id": "doing",
+      "tetun": "Ita halo saida?",
+      "english": "What are you doing?",
+      "icon": "doing"
+    },
+    {
+      "id": "when",
+      "tetun": "Bainhira?",
+      "english": "When?",
+      "icon": "when"
+    },
+    {
+      "id": "numbers",
+      "tetun": "Númeru ho oras",
+      "english": "Numbers and time",
+      "icon": "numbers"
+    },
+    {
+      "id": "school",
+      "tetun": "Eskola",
+      "english": "School",
+      "icon": "school"
+    },
+    {
+      "id": "directions",
+      "tetun": "Hatudu dalan",
+      "english": "Giving directions",
+      "icon": "directions"
+    },
+    {
+      "id": "household",
+      "tetun": "Uma kain",
+      "english": "Household",
+      "icon": "household"
+    },
+    {
+      "id": "plans",
+      "tetun": "Halo planu",
+      "english": "Making plans",
+      "icon": "plans"
+    },
+    {
+      "id": "activities",
+      "tetun": "Atividade loro-loron nian",
+      "english": "Daily activities",
+      "icon": "activities"
+    },
+    {
+      "id": "eat",
+      "tetun": "Ita haan lai!",
+      "english": "Let's eat!",
+      "icon": "eat"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "greetings-1",
+      "topic": "greetings",
+      "number": 1,
+      "title": "Greetings I"
+    },
+    {
+      "id": "greetings-2",
+      "topic": "greetings",
+      "number": 2,
+      "title": "Greetings II"
+    },
+    {
+      "id": "excuseme-1",
+      "topic": "excuseme",
+      "number": 1,
+      "title": "Excuse me I"
+    },
+    {
+      "id": "excuseme-2",
+      "topic": "excuseme",
+      "number": 2,
+      "title": "Excuse me II"
+    },
+    {
+      "id": "excuseme-3",
+      "topic": "excuseme",
+      "number": 3,
+      "title": "Excuse me III"
+    },
+    {
+      "id": "learning-1",
+      "topic": "learning",
+      "number": 1,
+      "title": "Learning I"
+    },
+    {
+      "id": "learning-2",
+      "topic": "learning",
+      "number": 2,
+      "title": "Learning II"
+    },
+    {
+      "id": "doing-1",
+      "topic": "doing",
+      "number": 1,
+      "title": "What are you doing? I"
+    },
+    {
+      "id": "doing-2",
+      "topic": "doing",
+      "number": 2,
+      "title": "What are you doing? II"
+    },
+    {
+      "id": "when-1",
+      "topic": "when",
+      "number": 1,
+      "title": "When? I"
+    },
+    {
+      "id": "when-2",
+      "topic": "when",
+      "number": 2,
+      "title": "When? II"
+    },
+    {
+      "id": "when-3",
+      "topic": "when",
+      "number": 3,
+      "title": "When? III"
+    },
+    {
+      "id": "numbers-1",
+      "topic": "numbers",
+      "number": 1,
+      "title": "Numbers and time I"
+    },
+    {
+      "id": "numbers-2",
+      "topic": "numbers",
+      "number": 2,
+      "title": "Numbers and time II"
+    },
+    {
+      "id": "numbers-3",
+      "topic": "numbers",
+      "number": 3,
+      "title": "Numbers and time III"
+    },
+    {
+      "id": "numbers-4",
+      "topic": "numbers",
+      "number": 4,
+      "title": "Numbers and time IV"
+    },
+    {
+      "id": "numbers-5",
+      "topic": "numbers",
+      "number": 5,
+      "title": "Numbers and time V"
+    },
+    {
+      "id": "school-1",
+      "topic": "school",
+      "number": 1,
+      "title": "School I"
+    },
+    {
+      "id": "school-2",
+      "topic": "school",
+      "number": 2,
+      "title": "School II"
+    },
+    {
+      "id": "school-3",
+      "topic": "school",
+      "number": 3,
+      "title": "School III"
+    },
+    {
+      "id": "directions-1",
+      "topic": "directions",
+      "number": 1,
+      "title": "Giving directions I"
+    },
+    {
+      "id": "directions-2",
+      "topic": "directions",
+      "number": 2,
+      "title": "Giving directions II"
+    },
+    {
+      "id": "directions-3",
+      "topic": "directions",
+      "number": 3,
+      "title": "Giving directions III"
+    },
+    {
+      "id": "household-1",
+      "topic": "household",
+      "number": 1,
+      "title": "Household I"
+    },
+    {
+      "id": "household-2",
+      "topic": "household",
+      "number": 2,
+      "title": "Household II"
+    },
+    {
+      "id": "household-3",
+      "topic": "household",
+      "number": 3,
+      "title": "Household III"
+    },
+    {
+      "id": "plans-1",
+      "topic": "plans",
+      "number": 1,
+      "title": "Making plans I"
+    },
+    {
+      "id": "plans-2",
+      "topic": "plans",
+      "number": 2,
+      "title": "Making plans II"
+    },
+    {
+      "id": "plans-3",
+      "topic": "plans",
+      "number": 3,
+      "title": "Making plans III"
+    },
+    {
+      "id": "activities-1",
+      "topic": "activities",
+      "number": 1,
+      "title": "Daily activities I"
+    },
+    {
+      "id": "activities-2",
+      "topic": "activities",
+      "number": 2,
+      "title": "Daily activities II"
+    },
+    {
+      "id": "eat-1",
+      "topic": "eat",
+      "number": 1,
+      "title": "Let's eat! I"
+    },
+    {
+      "id": "eat-2",
+      "topic": "eat",
+      "number": 2,
+      "title": "Let's eat! II"
+    }
+  ],
+  "entries": [
+    {
+      "id": "w001",
+      "tetun": "bondia",
+      "english": "good morning",
+      "topic": "greetings",
+      "lesson": 1
+    },
+    {
+      "id": "w002",
+      "tetun": "botardi",
+      "english": "good afternoon",
+      "topic": "greetings",
+      "lesson": 1
+    },
+    {
+      "id": "w003",
+      "tetun": "bonoiti",
+      "english": "good evening, good night",
+      "topic": "greetings",
+      "lesson": 1
+    },
+    {
+      "id": "w004",
+      "tetun": "ate amanyá",
+      "english": "see you tomorrow",
+      "topic": "greetings",
+      "lesson": 1
+    },
+    {
+      "id": "w005",
+      "tetun": "ate logu",
+      "english": "see you later today",
+      "topic": "greetings",
+      "lesson": 1
+    },
+    {
+      "id": "w006",
+      "tetun": "adeus",
+      "english": "goodbye",
+      "topic": "greetings",
+      "lesson": 1
+    },
+    {
+      "id": "w007",
+      "tetun": "diak",
+      "english": "good; well; OK",
+      "topic": "greetings",
+      "lesson": 1
+    },
+    {
+      "id": "w008",
+      "tetun": "hosi",
+      "english": " from, originate from",
+      "topic": "greetings",
+      "lesson": 1
+    },
+    {
+      "id": "w009",
+      "tetun": "obrigadu",
+      "english": "thank you (man speaking)",
+      "topic": "greetings",
+      "lesson": 1
+    },
+    {
+      "id": "w010",
+      "tetun": "obrigada",
+      "english": "thank you (woman speaking)",
+      "topic": "greetings",
+      "lesson": 1
+    },
+    {
+      "id": "w011",
+      "tetun": "senyór",
+      "english": "sir, mister",
+      "topic": "greetings",
+      "lesson": 2
+    },
+    {
+      "id": "w012",
+      "tetun": "senyora",
+      "english": "Madam, Mrs",
+      "topic": "greetings",
+      "lesson": 2
+    },
+    {
+      "id": "w013",
+      "tetun": "tiu",
+      "english": "uncle",
+      "topic": "greetings",
+      "lesson": 2
+    },
+    {
+      "id": "w014",
+      "tetun": "tia",
+      "english": "aunt",
+      "topic": "greetings",
+      "lesson": 2
+    },
+    {
+      "id": "w015",
+      "tetun": "maun",
+      "english": "older brother",
+      "topic": "greetings",
+      "lesson": 2
+    },
+    {
+      "id": "w016",
+      "tetun": "mana",
+      "english": "older sister",
+      "topic": "greetings",
+      "lesson": 2
+    },
+    {
+      "id": "w017",
+      "tetun": "alin",
+      "english": "younger brother/sister",
+      "topic": "greetings",
+      "lesson": 2
+    },
+    {
+      "id": "w018",
+      "tetun": "hau",
+      "english": "I, me",
+      "topic": "greetings",
+      "lesson": 2
+    },
+    {
+      "id": "w019",
+      "tetun": "ita",
+      "english": "you (singular respectful)",
+      "topic": "greetings",
+      "lesson": 2
+    },
+    {
+      "id": "w020",
+      "tetun": "nia",
+      "english": "he, she, him, her",
+      "topic": "greetings",
+      "lesson": 2
+    },
+    {
+      "id": "w021",
+      "tetun": "saa",
+      "english": "what",
+      "topic": "excuseme",
+      "lesson": 1
+    },
+    {
+      "id": "w022",
+      "tetun": "nebee",
+      "english": "where",
+      "topic": "excuseme",
+      "lesson": 1
+    },
+    {
+      "id": "w023",
+      "tetun": "hakarak",
+      "english": "want",
+      "topic": "excuseme",
+      "lesson": 1
+    },
+    {
+      "id": "w024",
+      "tetun": "naran",
+      "english": "name",
+      "topic": "excuseme",
+      "lesson": 1
+    },
+    {
+      "id": "w025",
+      "tetun": "hamrook",
+      "english": "thirsty",
+      "topic": "excuseme",
+      "lesson": 1
+    },
+    {
+      "id": "w026",
+      "tetun": "hamlaha",
+      "english": "hungry",
+      "topic": "excuseme",
+      "lesson": 1
+    },
+    {
+      "id": "w027",
+      "tetun": "kolen, kole",
+      "english": "tired",
+      "topic": "excuseme",
+      "lesson": 1
+    },
+    {
+      "id": "w028",
+      "tetun": "moras",
+      "english": "sick",
+      "topic": "excuseme",
+      "lesson": 1
+    },
+    {
+      "id": "w029",
+      "tetun": "deskansa",
+      "english": "rest",
+      "topic": "excuseme",
+      "lesson": 1
+    },
+    {
+      "id": "w030",
+      "tetun": "hariis",
+      "english": "bathe",
+      "topic": "excuseme",
+      "lesson": 1
+    },
+    {
+      "id": "w031",
+      "tetun": "mai",
+      "english": "come, come to",
+      "topic": "excuseme",
+      "lesson": 2
+    },
+    {
+      "id": "w032",
+      "tetun": "baa",
+      "english": "go, go to",
+      "topic": "excuseme",
+      "lesson": 2
+    },
+    {
+      "id": "w033",
+      "tetun": "haan",
+      "english": "eat",
+      "topic": "excuseme",
+      "lesson": 2
+    },
+    {
+      "id": "w034",
+      "tetun": "hemu",
+      "english": "drink",
+      "topic": "excuseme",
+      "lesson": 2
+    },
+    {
+      "id": "w035",
+      "tetun": "lakohi, lakoi",
+      "english": "don’t want, refuse",
+      "topic": "excuseme",
+      "lesson": 2
+    },
+    {
+      "id": "w036",
+      "tetun": "lisensa",
+      "english": "excuse me",
+      "topic": "excuseme",
+      "lesson": 2
+    },
+    {
+      "id": "w037",
+      "tetun": "deskulpa",
+      "english": "sorry",
+      "topic": "excuseme",
+      "lesson": 2
+    },
+    {
+      "id": "w038",
+      "tetun": "nada",
+      "english": "you’re welcome",
+      "topic": "excuseme",
+      "lesson": 2
+    },
+    {
+      "id": "w039",
+      "tetun": "uma",
+      "english": "house, building, home",
+      "topic": "excuseme",
+      "lesson": 2
+    },
+    {
+      "id": "w040",
+      "tetun": "eskola",
+      "english": "school",
+      "topic": "excuseme",
+      "lesson": 2
+    },
+    {
+      "id": "w041",
+      "tetun": "bee",
+      "english": "water",
+      "topic": "excuseme",
+      "lesson": 3
+    },
+    {
+      "id": "w042",
+      "tetun": "bele",
+      "english": "can, may, be able to, be allowed to",
+      "topic": "excuseme",
+      "lesson": 3
+    },
+    {
+      "id": "w043",
+      "tetun": "la",
+      "english": "not",
+      "topic": "excuseme",
+      "lesson": 3
+    },
+    {
+      "id": "w044",
+      "tetun": "lae",
+      "english": "no",
+      "topic": "excuseme",
+      "lesson": 3
+    },
+    {
+      "id": "w045",
+      "tetun": "sin",
+      "english": "yes",
+      "topic": "excuseme",
+      "lesson": 3
+    },
+    {
+      "id": "w046",
+      "tetun": "ka",
+      "english": "QUESTION TAG; or",
+      "topic": "excuseme",
+      "lesson": 3
+    },
+    {
+      "id": "w047",
+      "tetun": "lian Indonézia",
+      "english": "Indonesian language",
+      "topic": "excuseme",
+      "lesson": 3
+    },
+    {
+      "id": "w048",
+      "tetun": "Bahasa",
+      "english": "Indonesian language",
+      "topic": "excuseme",
+      "lesson": 3
+    },
+    {
+      "id": "w049",
+      "tetun": "lisaun",
+      "english": "lesson",
+      "topic": "excuseme",
+      "lesson": 3
+    },
+    {
+      "id": "w050",
+      "tetun": "liafuan",
+      "english": "word, short segment of speech",
+      "topic": "excuseme",
+      "lesson": 3
+    },
+    {
+      "id": "w051",
+      "tetun": "kompriende",
+      "english": "understand",
+      "topic": "learning",
+      "lesson": 1
+    },
+    {
+      "id": "w052",
+      "tetun": "hatene",
+      "english": "know (something)",
+      "topic": "learning",
+      "lesson": 1
+    },
+    {
+      "id": "w053",
+      "tetun": "aprende",
+      "english": "learn",
+      "topic": "learning",
+      "lesson": 1
+    },
+    {
+      "id": "w054",
+      "tetun": "hatete fali",
+      "english": "say it again",
+      "topic": "learning",
+      "lesson": 1
+    },
+    {
+      "id": "w055",
+      "tetun": "koalia",
+      "english": "speak",
+      "topic": "learning",
+      "lesson": 1
+    },
+    {
+      "id": "w056",
+      "tetun": "neineik",
+      "english": "slowly, softly",
+      "topic": "learning",
+      "lesson": 1
+    },
+    {
+      "id": "w057",
+      "tetun": "loos",
+      "english": "true, correct, straight, right",
+      "topic": "learning",
+      "lesson": 1
+    },
+    {
+      "id": "w058",
+      "tetun": "sala",
+      "english": "wrong; error",
+      "topic": "learning",
+      "lesson": 1
+    },
+    {
+      "id": "w059",
+      "tetun": "saida",
+      "english": "what",
+      "topic": "learning",
+      "lesson": 1
+    },
+    {
+      "id": "w060",
+      "tetun": "lalais",
+      "english": "quickly",
+      "topic": "learning",
+      "lesson": 1
+    },
+    {
+      "id": "w061",
+      "tetun": "ita boot",
+      "english": "you (singular formal)",
+      "topic": "learning",
+      "lesson": 2
+    },
+    {
+      "id": "w062",
+      "tetun": "o",
+      "english": "you (singular familiar)",
+      "topic": "learning",
+      "lesson": 2
+    },
+    {
+      "id": "w063",
+      "tetun": "imi",
+      "english": "you (plural)",
+      "topic": "learning",
+      "lesson": 2
+    },
+    {
+      "id": "w064",
+      "tetun": "ami",
+      "english": "we, us (excluding ‘you’)",
+      "topic": "learning",
+      "lesson": 2
+    },
+    {
+      "id": "w065",
+      "tetun": "ita",
+      "english": "we, us (including ‘you’)",
+      "topic": "learning",
+      "lesson": 2
+    },
+    {
+      "id": "w066",
+      "tetun": "sira",
+      "english": "they, them",
+      "topic": "learning",
+      "lesson": 2
+    },
+    {
+      "id": "w067",
+      "tetun": "nee",
+      "english": "this",
+      "topic": "learning",
+      "lesson": 2
+    },
+    {
+      "id": "w068",
+      "tetun": "favór ida",
+      "english": "please",
+      "topic": "learning",
+      "lesson": 2
+    },
+    {
+      "id": "w069",
+      "tetun": "laós",
+      "english": "not, indeed not",
+      "topic": "learning",
+      "lesson": 2
+    },
+    {
+      "id": "w070",
+      "tetun": "halo",
+      "english": "do, make",
+      "topic": "learning",
+      "lesson": 2
+    },
+    {
+      "id": "w071",
+      "tetun": "rona",
+      "english": "hear, listen to",
+      "topic": "doing",
+      "lesson": 1
+    },
+    {
+      "id": "w072",
+      "tetun": "haree",
+      "english": "see, look at",
+      "topic": "doing",
+      "lesson": 1
+    },
+    {
+      "id": "w073",
+      "tetun": "lee",
+      "english": "read",
+      "topic": "doing",
+      "lesson": 1
+    },
+    {
+      "id": "w074",
+      "tetun": "pasiar",
+      "english": "go for an outing",
+      "topic": "doing",
+      "lesson": 1
+    },
+    {
+      "id": "w075",
+      "tetun": "halimar",
+      "english": "play, relax",
+      "topic": "doing",
+      "lesson": 1
+    },
+    {
+      "id": "w076",
+      "tetun": "lao",
+      "english": "walk",
+      "topic": "doing",
+      "lesson": 1
+    },
+    {
+      "id": "w077",
+      "tetun": "tuur",
+      "english": "sit",
+      "topic": "doing",
+      "lesson": 1
+    },
+    {
+      "id": "w078",
+      "tetun": "hamriik",
+      "english": "stand",
+      "topic": "doing",
+      "lesson": 1
+    },
+    {
+      "id": "w079",
+      "tetun": "servisu",
+      "english": "work, have a job",
+      "topic": "doing",
+      "lesson": 1
+    },
+    {
+      "id": "w080",
+      "tetun": "hela",
+      "english": "live, stay,reside",
+      "topic": "doing",
+      "lesson": 1
+    },
+    {
+      "id": "w081",
+      "tetun": "rádiu",
+      "english": "radio",
+      "topic": "doing",
+      "lesson": 2
+    },
+    {
+      "id": "w082",
+      "tetun": "televizaun",
+      "english": "television",
+      "topic": "doing",
+      "lesson": 2
+    },
+    {
+      "id": "w083",
+      "tetun": "jornál",
+      "english": "newspaper",
+      "topic": "doing",
+      "lesson": 2
+    },
+    {
+      "id": "w084",
+      "tetun": "fraze",
+      "english": "sentence",
+      "topic": "doing",
+      "lesson": 2
+    },
+    {
+      "id": "w085",
+      "tetun": "depois",
+      "english": "and then",
+      "topic": "doing",
+      "lesson": 2
+    },
+    {
+      "id": "w086",
+      "tetun": "tenki",
+      "english": "must, have to",
+      "topic": "doing",
+      "lesson": 2
+    },
+    {
+      "id": "w087",
+      "tetun": "iha",
+      "english": "in, at",
+      "topic": "doing",
+      "lesson": 2
+    },
+    {
+      "id": "w088",
+      "tetun": "iha nebee?",
+      "english": "where?",
+      "topic": "doing",
+      "lesson": 2
+    },
+    {
+      "id": "w089",
+      "tetun": "iha nee",
+      "english": "here",
+      "topic": "doing",
+      "lesson": 2
+    },
+    {
+      "id": "w090",
+      "tetun": "iha nebaa",
+      "english": "there",
+      "topic": "doing",
+      "lesson": 2
+    },
+    {
+      "id": "w091",
+      "tetun": "uluk",
+      "english": "formerly, in the past",
+      "topic": "when",
+      "lesson": 1
+    },
+    {
+      "id": "w092",
+      "tetun": "horiseik",
+      "english": "yesterday",
+      "topic": "when",
+      "lesson": 1
+    },
+    {
+      "id": "w093",
+      "tetun": "ohin loron",
+      "english": "today",
+      "topic": "when",
+      "lesson": 1
+    },
+    {
+      "id": "w094",
+      "tetun": "aban",
+      "english": "tomorrow",
+      "topic": "when",
+      "lesson": 1
+    },
+    {
+      "id": "w095",
+      "tetun": "aban-bainrua",
+      "english": "in the future",
+      "topic": "when",
+      "lesson": 1
+    },
+    {
+      "id": "w096",
+      "tetun": "loron",
+      "english": "day",
+      "topic": "when",
+      "lesson": 1
+    },
+    {
+      "id": "w097",
+      "tetun": "kalan",
+      "english": "night",
+      "topic": "when",
+      "lesson": 1
+    },
+    {
+      "id": "w098",
+      "tetun": "loron-kalan",
+      "english": "day and night",
+      "topic": "when",
+      "lesson": 1
+    },
+    {
+      "id": "w099",
+      "tetun": "dadeer",
+      "english": "morning (to about 11am)",
+      "topic": "when",
+      "lesson": 1
+    },
+    {
+      "id": "w100",
+      "tetun": "meiudia",
+      "english": "midday",
+      "topic": "when",
+      "lesson": 1
+    },
+    {
+      "id": "w101",
+      "tetun": " lokraik, loraik",
+      "english": "afternoon (about 2.30-dark)",
+      "topic": "when",
+      "lesson": 2
+    },
+    {
+      "id": "w102",
+      "tetun": "ohin",
+      "english": "just now, earlier today",
+      "topic": "when",
+      "lesson": 2
+    },
+    {
+      "id": "w103",
+      "tetun": "agora",
+      "english": "now",
+      "topic": "when",
+      "lesson": 2
+    },
+    {
+      "id": "w104",
+      "tetun": "orsida",
+      "english": "soon, later today",
+      "topic": "when",
+      "lesson": 2
+    },
+    {
+      "id": "w105",
+      "tetun": "hori-kalan",
+      "english": "last night, yesterday evening",
+      "topic": "when",
+      "lesson": 2
+    },
+    {
+      "id": "w106",
+      "tetun": "orsida kalan",
+      "english": "this evening",
+      "topic": "when",
+      "lesson": 2
+    },
+    {
+      "id": "w107",
+      "tetun": "bainhira",
+      "english": "when? (for future)",
+      "topic": "when",
+      "lesson": 2
+    },
+    {
+      "id": "w108",
+      "tetun": "hori-bainhira",
+      "english": "when? (for past)",
+      "topic": "when",
+      "lesson": 2
+    },
+    {
+      "id": "w109",
+      "tetun": "sedu",
+      "english": "early",
+      "topic": "when",
+      "lesson": 2
+    },
+    {
+      "id": "w110",
+      "tetun": "tardi",
+      "english": "late",
+      "topic": "when",
+      "lesson": 2
+    },
+    {
+      "id": "w111",
+      "tetun": "ho oras",
+      "english": "on time",
+      "topic": "when",
+      "lesson": 3
+    },
+    {
+      "id": "w112",
+      "tetun": "nee",
+      "english": "this, these, the",
+      "topic": "when",
+      "lesson": 3
+    },
+    {
+      "id": "w113",
+      "tetun": "falta",
+      "english": "absent, lack",
+      "topic": "when",
+      "lesson": 3
+    },
+    {
+      "id": "w114",
+      "tetun": "liu",
+      "english": "go past, further",
+      "topic": "when",
+      "lesson": 3
+    },
+    {
+      "id": "w115",
+      "tetun": "sura",
+      "english": "count",
+      "topic": "when",
+      "lesson": 3
+    },
+    {
+      "id": "w116",
+      "tetun": "hira",
+      "english": "how many, how much?",
+      "topic": "when",
+      "lesson": 3
+    },
+    {
+      "id": "w117",
+      "tetun": "tinan hira",
+      "english": "how old (in years)?",
+      "topic": "when",
+      "lesson": 3
+    },
+    {
+      "id": "w118",
+      "tetun": "ho",
+      "english": "and",
+      "topic": "when",
+      "lesson": 3
+    },
+    {
+      "id": "w119",
+      "tetun": "resin",
+      "english": "extra, excess",
+      "topic": "when",
+      "lesson": 3
+    },
+    {
+      "id": "w120",
+      "tetun": "estuda",
+      "english": "study",
+      "topic": "when",
+      "lesson": 3
+    },
+    {
+      "id": "w121",
+      "tetun": "ida",
+      "english": "one",
+      "topic": "numbers",
+      "lesson": 1
+    },
+    {
+      "id": "w122",
+      "tetun": "rua",
+      "english": "two",
+      "topic": "numbers",
+      "lesson": 1
+    },
+    {
+      "id": "w123",
+      "tetun": "tolu",
+      "english": "three",
+      "topic": "numbers",
+      "lesson": 1
+    },
+    {
+      "id": "w124",
+      "tetun": "haat",
+      "english": "four",
+      "topic": "numbers",
+      "lesson": 1
+    },
+    {
+      "id": "w125",
+      "tetun": "lima",
+      "english": "five",
+      "topic": "numbers",
+      "lesson": 1
+    },
+    {
+      "id": "w126",
+      "tetun": "neen",
+      "english": "six",
+      "topic": "numbers",
+      "lesson": 1
+    },
+    {
+      "id": "w127",
+      "tetun": "hitu",
+      "english": "seven",
+      "topic": "numbers",
+      "lesson": 1
+    },
+    {
+      "id": "w128",
+      "tetun": "walu",
+      "english": "eight",
+      "topic": "numbers",
+      "lesson": 1
+    },
+    {
+      "id": "w129",
+      "tetun": "sia",
+      "english": "nine",
+      "topic": "numbers",
+      "lesson": 1
+    },
+    {
+      "id": "w130",
+      "tetun": "sanulu",
+      "english": "ten",
+      "topic": "numbers",
+      "lesson": 1
+    },
+    {
+      "id": "w131",
+      "tetun": "sanulu resin ida",
+      "english": "eleven",
+      "topic": "numbers",
+      "lesson": 2
+    },
+    {
+      "id": "w132",
+      "tetun": "sanulu resin rua",
+      "english": "twelve",
+      "topic": "numbers",
+      "lesson": 2
+    },
+    {
+      "id": "w133",
+      "tetun": "sanulu resin tolu",
+      "english": "thirteen",
+      "topic": "numbers",
+      "lesson": 2
+    },
+    {
+      "id": "w134",
+      "tetun": "sanulu resin haat",
+      "english": "fourteen",
+      "topic": "numbers",
+      "lesson": 2
+    },
+    {
+      "id": "w135",
+      "tetun": "sanulu resin lima",
+      "english": "fifteen",
+      "topic": "numbers",
+      "lesson": 2
+    },
+    {
+      "id": "w136",
+      "tetun": "sanulu resin neen",
+      "english": "sixteen",
+      "topic": "numbers",
+      "lesson": 2
+    },
+    {
+      "id": "w137",
+      "tetun": "sanulu resin hitu",
+      "english": "seventeen",
+      "topic": "numbers",
+      "lesson": 2
+    },
+    {
+      "id": "w138",
+      "tetun": "sanulu resin walu",
+      "english": "eighteen",
+      "topic": "numbers",
+      "lesson": 2
+    },
+    {
+      "id": "w139",
+      "tetun": "sanulu resin sia",
+      "english": "nineteen",
+      "topic": "numbers",
+      "lesson": 2
+    },
+    {
+      "id": "w140",
+      "tetun": "rua-nulu",
+      "english": "twenty",
+      "topic": "numbers",
+      "lesson": 2
+    },
+    {
+      "id": "w141",
+      "tetun": "tolu-nulu",
+      "english": "thirty",
+      "topic": "numbers",
+      "lesson": 3
+    },
+    {
+      "id": "w142",
+      "tetun": "haat-nulu",
+      "english": "forty",
+      "topic": "numbers",
+      "lesson": 3
+    },
+    {
+      "id": "w143",
+      "tetun": "lima-nulu",
+      "english": "fifty",
+      "topic": "numbers",
+      "lesson": 3
+    },
+    {
+      "id": "w144",
+      "tetun": "neen-nulu",
+      "english": "sixty",
+      "topic": "numbers",
+      "lesson": 3
+    },
+    {
+      "id": "w145",
+      "tetun": "hitu-nulu",
+      "english": "seventy",
+      "topic": "numbers",
+      "lesson": 3
+    },
+    {
+      "id": "w146",
+      "tetun": "walu-nulu",
+      "english": "eighty",
+      "topic": "numbers",
+      "lesson": 3
+    },
+    {
+      "id": "w147",
+      "tetun": "sia-nulu",
+      "english": "ninety",
+      "topic": "numbers",
+      "lesson": 3
+    },
+    {
+      "id": "w148",
+      "tetun": "zero",
+      "english": "zero",
+      "topic": "numbers",
+      "lesson": 3
+    },
+    {
+      "id": "w149",
+      "tetun": "lima-nulu resin ida",
+      "english": "fifty one",
+      "topic": "numbers",
+      "lesson": 3
+    },
+    {
+      "id": "w150",
+      "tetun": "atus ida",
+      "english": "one hundred",
+      "topic": "numbers",
+      "lesson": 3
+    },
+    {
+      "id": "w151",
+      "tetun": "atus rua",
+      "english": "two hundred",
+      "topic": "numbers",
+      "lesson": 4
+    },
+    {
+      "id": "w152",
+      "tetun": "atus ida rua",
+      "english": "one hundred and one",
+      "topic": "numbers",
+      "lesson": 4
+    },
+    {
+      "id": "w153",
+      "tetun": "atus ida rua-nulu",
+      "english": "one hundred and twenty",
+      "topic": "numbers",
+      "lesson": 4
+    },
+    {
+      "id": "w154",
+      "tetun": "rihun ida",
+      "english": "one thousand",
+      "topic": "numbers",
+      "lesson": 4
+    },
+    {
+      "id": "w155",
+      "tetun": "rihun rua",
+      "english": "two thousand",
+      "topic": "numbers",
+      "lesson": 4
+    },
+    {
+      "id": "w156",
+      "tetun": "tuku",
+      "english": "o’clock",
+      "topic": "numbers",
+      "lesson": 4
+    },
+    {
+      "id": "w157",
+      "tetun": "balu",
+      "english": "half, some, part of",
+      "topic": "numbers",
+      "lesson": 4
+    },
+    {
+      "id": "w158",
+      "tetun": "númeru",
+      "english": "number",
+      "topic": "numbers",
+      "lesson": 4
+    },
+    {
+      "id": "w159",
+      "tetun": "tinan",
+      "english": "year",
+      "topic": "numbers",
+      "lesson": 4
+    },
+    {
+      "id": "w160",
+      "tetun": "fulan",
+      "english": "month",
+      "topic": "numbers",
+      "lesson": 4
+    },
+    {
+      "id": "w161",
+      "tetun": "semana",
+      "english": "week",
+      "topic": "numbers",
+      "lesson": 5
+    },
+    {
+      "id": "w162",
+      "tetun": "oras",
+      "english": "hour",
+      "topic": "numbers",
+      "lesson": 5
+    },
+    {
+      "id": "w163",
+      "tetun": "minutu",
+      "english": "minute",
+      "topic": "numbers",
+      "lesson": 5
+    },
+    {
+      "id": "w164",
+      "tetun": "bainrua",
+      "english": "in two days’time, the day after tomorrow",
+      "topic": "numbers",
+      "lesson": 5
+    },
+    {
+      "id": "w165",
+      "tetun": "baintolu",
+      "english": "in three days’ time",
+      "topic": "numbers",
+      "lesson": 5
+    },
+    {
+      "id": "w166",
+      "tetun": "bainhaat",
+      "english": "in four days’ time",
+      "topic": "numbers",
+      "lesson": 5
+    },
+    {
+      "id": "w167",
+      "tetun": "bainlima",
+      "english": "in five days’ time",
+      "topic": "numbers",
+      "lesson": 5
+    },
+    {
+      "id": "w168",
+      "tetun": "bainneen",
+      "english": "in six days’ time",
+      "topic": "numbers",
+      "lesson": 5
+    },
+    {
+      "id": "w169",
+      "tetun": "hori-bainruak",
+      "english": "two days ago",
+      "topic": "numbers",
+      "lesson": 5
+    },
+    {
+      "id": "w170",
+      "tetun": "hori-baintolu",
+      "english": "three days ago",
+      "topic": "numbers",
+      "lesson": 5
+    },
+    {
+      "id": "w171",
+      "tetun": "hori-bainhaat",
+      "english": "four days ago",
+      "topic": "school",
+      "lesson": 1
+    },
+    {
+      "id": "w172",
+      "tetun": "hori-bainlima",
+      "english": "five days ago",
+      "topic": "school",
+      "lesson": 1
+    },
+    {
+      "id": "w173",
+      "tetun": "hori-bainneen",
+      "english": "six days ago",
+      "topic": "school",
+      "lesson": 1
+    },
+    {
+      "id": "w174",
+      "tetun": "hanorin",
+      "english": "teach",
+      "topic": "school",
+      "lesson": 1
+    },
+    {
+      "id": "w175",
+      "tetun": "hakerek",
+      "english": "write",
+      "topic": "school",
+      "lesson": 1
+    },
+    {
+      "id": "w176",
+      "tetun": "husu",
+      "english": "ask, request",
+      "topic": "school",
+      "lesson": 1
+    },
+    {
+      "id": "w177",
+      "tetun": "dehan",
+      "english": "say, mean",
+      "topic": "school",
+      "lesson": 1
+    },
+    {
+      "id": "w178",
+      "tetun": "konyese",
+      "english": "know (someone)",
+      "topic": "school",
+      "lesson": 1
+    },
+    {
+      "id": "w179",
+      "tetun": "hasoru",
+      "english": "meet",
+      "topic": "school",
+      "lesson": 1
+    },
+    {
+      "id": "w180",
+      "tetun": "buka",
+      "english": "seek, look for",
+      "topic": "school",
+      "lesson": 1
+    },
+    {
+      "id": "w181",
+      "tetun": "hetan",
+      "english": "find, get, come across",
+      "topic": "school",
+      "lesson": 2
+    },
+    {
+      "id": "w182",
+      "tetun": "tama",
+      "english": "enter",
+      "topic": "school",
+      "lesson": 2
+    },
+    {
+      "id": "w183",
+      "tetun": "sai",
+      "english": "exit",
+      "topic": "school",
+      "lesson": 2
+    },
+    {
+      "id": "w184",
+      "tetun": "eskola",
+      "english": "be educated, attend school",
+      "topic": "school",
+      "lesson": 2
+    },
+    {
+      "id": "w185",
+      "tetun": "kapaas",
+      "english": "beautiful, lovely",
+      "topic": "school",
+      "lesson": 2
+    },
+    {
+      "id": "w186",
+      "tetun": "boot",
+      "english": "big, important, adult",
+      "topic": "school",
+      "lesson": 2
+    },
+    {
+      "id": "w187",
+      "tetun": "kiik",
+      "english": "small",
+      "topic": "school",
+      "lesson": 2
+    },
+    {
+      "id": "w188",
+      "tetun": "kolega",
+      "english": "friend, colleague, school-mate",
+      "topic": "school",
+      "lesson": 2
+    },
+    {
+      "id": "w189",
+      "tetun": "ema",
+      "english": "person, people",
+      "topic": "school",
+      "lesson": 2
+    },
+    {
+      "id": "w190",
+      "tetun": "livru",
+      "english": "book",
+      "topic": "school",
+      "lesson": 2
+    },
+    {
+      "id": "w191",
+      "tetun": "mestri",
+      "english": "male teacher",
+      "topic": "school",
+      "lesson": 3
+    },
+    {
+      "id": "w192",
+      "tetun": "mestra",
+      "english": "female teacher",
+      "topic": "school",
+      "lesson": 3
+    },
+    {
+      "id": "w193",
+      "tetun": "estudante",
+      "english": "student (esp. at university)",
+      "topic": "school",
+      "lesson": 3
+    },
+    {
+      "id": "w194",
+      "tetun": "kláse",
+      "english": "class, grade (of school)",
+      "topic": "school",
+      "lesson": 3
+    },
+    {
+      "id": "w195",
+      "tetun": "deit",
+      "english": "just",
+      "topic": "school",
+      "lesson": 3
+    },
+    {
+      "id": "w196",
+      "tetun": "maibee",
+      "english": "but",
+      "topic": "school",
+      "lesson": 3
+    },
+    {
+      "id": "w197",
+      "tetun": "tanba",
+      "english": "because",
+      "topic": "school",
+      "lesson": 3
+    },
+    {
+      "id": "w198",
+      "tetun": "see",
+      "english": "who",
+      "topic": "school",
+      "lesson": 3
+    },
+    {
+      "id": "w199",
+      "tetun": "kona ba",
+      "english": "about (a topic), concerning",
+      "topic": "school",
+      "lesson": 3
+    },
+    {
+      "id": "w200",
+      "tetun": "kareta",
+      "english": "vehicle, car, bus, truck",
+      "topic": "school",
+      "lesson": 3
+    },
+    {
+      "id": "w201",
+      "tetun": "mikrolét",
+      "english": "minibus",
+      "topic": "directions",
+      "lesson": 1
+    },
+    {
+      "id": "w202",
+      "tetun": "taksi",
+      "english": "taxi",
+      "topic": "directions",
+      "lesson": 1
+    },
+    {
+      "id": "w203",
+      "tetun": "motór",
+      "english": "motorbike",
+      "topic": "directions",
+      "lesson": 1
+    },
+    {
+      "id": "w204",
+      "tetun": "dalan",
+      "english": "path, road, way",
+      "topic": "directions",
+      "lesson": 1
+    },
+    {
+      "id": "w205",
+      "tetun": "estrada",
+      "english": "road, street",
+      "topic": "directions",
+      "lesson": 1
+    },
+    {
+      "id": "w206",
+      "tetun": "liman",
+      "english": "hand, arm",
+      "topic": "directions",
+      "lesson": 1
+    },
+    {
+      "id": "w207",
+      "tetun": "merkadu",
+      "english": "market",
+      "topic": "directions",
+      "lesson": 1
+    },
+    {
+      "id": "w208",
+      "tetun": "loja",
+      "english": "shop",
+      "topic": "directions",
+      "lesson": 1
+    },
+    {
+      "id": "w209",
+      "tetun": "restorante",
+      "english": "restaurant",
+      "topic": "directions",
+      "lesson": 1
+    },
+    {
+      "id": "w210",
+      "tetun": "igreja",
+      "english": "church",
+      "topic": "directions",
+      "lesson": 1
+    },
+    {
+      "id": "w211",
+      "tetun": "kruzamentu",
+      "english": "intersection",
+      "topic": "directions",
+      "lesson": 2
+    },
+    {
+      "id": "w212",
+      "tetun": "sae",
+      "english": "climb, ascend; get on, ride in a vehicle",
+      "topic": "directions",
+      "lesson": 2
+    },
+    {
+      "id": "w213",
+      "tetun": "tuun",
+      "english": "descend, get out of a vehicle",
+      "topic": "directions",
+      "lesson": 2
+    },
+    {
+      "id": "w214",
+      "tetun": "para",
+      "english": "stop",
+      "topic": "directions",
+      "lesson": 2
+    },
+    {
+      "id": "w215",
+      "tetun": "fila",
+      "english": "turn, return",
+      "topic": "directions",
+      "lesson": 2
+    },
+    {
+      "id": "w216",
+      "tetun": "hatudu",
+      "english": "show, point to",
+      "topic": "directions",
+      "lesson": 2
+    },
+    {
+      "id": "w217",
+      "tetun": "hein",
+      "english": "wait for",
+      "topic": "directions",
+      "lesson": 2
+    },
+    {
+      "id": "w218",
+      "tetun": "bolu",
+      "english": "summon, ask for, call",
+      "topic": "directions",
+      "lesson": 2
+    },
+    {
+      "id": "w219",
+      "tetun": "selu",
+      "english": "pay, pay for",
+      "topic": "directions",
+      "lesson": 2
+    },
+    {
+      "id": "w220",
+      "tetun": "lori",
+      "english": "bring, take; use; drive",
+      "topic": "directions",
+      "lesson": 2
+    },
+    {
+      "id": "w221",
+      "tetun": "besik",
+      "english": "near",
+      "topic": "directions",
+      "lesson": 3
+    },
+    {
+      "id": "w222",
+      "tetun": "dook",
+      "english": "far",
+      "topic": "directions",
+      "lesson": 3
+    },
+    {
+      "id": "w223",
+      "tetun": "loos",
+      "english": "right; straight, true",
+      "topic": "directions",
+      "lesson": 3
+    },
+    {
+      "id": "w224",
+      "tetun": "karuk",
+      "english": "left",
+      "topic": "directions",
+      "lesson": 3
+    },
+    {
+      "id": "w225",
+      "tetun": "ba",
+      "english": "to (preposition)",
+      "topic": "directions",
+      "lesson": 3
+    },
+    {
+      "id": "w226",
+      "tetun": "i",
+      "english": "and (to join clauses)",
+      "topic": "directions",
+      "lesson": 3
+    },
+    {
+      "id": "w227",
+      "tetun": "no",
+      "english": "and (in formal contexts)",
+      "topic": "directions",
+      "lesson": 3
+    },
+    {
+      "id": "w228",
+      "tetun": "mak",
+      "english": "FOCUS MARKER",
+      "topic": "directions",
+      "lesson": 3
+    },
+    {
+      "id": "w229",
+      "tetun": "inan-aman",
+      "english": "parents",
+      "topic": "directions",
+      "lesson": 3
+    },
+    {
+      "id": "w230",
+      "tetun": "amaa",
+      "english": "mother, mum",
+      "topic": "directions",
+      "lesson": 3
+    },
+    {
+      "id": "w231",
+      "tetun": "apaa",
+      "english": "father, dad",
+      "topic": "household",
+      "lesson": 1
+    },
+    {
+      "id": "w232",
+      "tetun": "oan",
+      "english": "child",
+      "topic": "household",
+      "lesson": 1
+    },
+    {
+      "id": "w233",
+      "tetun": "maun",
+      "english": "older brother",
+      "topic": "household",
+      "lesson": 1
+    },
+    {
+      "id": "w234",
+      "tetun": "biin",
+      "english": "older sister",
+      "topic": "household",
+      "lesson": 1
+    },
+    {
+      "id": "w235",
+      "tetun": "alin",
+      "english": "younger brother or sister",
+      "topic": "household",
+      "lesson": 1
+    },
+    {
+      "id": "w236",
+      "tetun": "maun-alin",
+      "english": "brothers and sisters",
+      "topic": "household",
+      "lesson": 1
+    },
+    {
+      "id": "w237",
+      "tetun": "avoo",
+      "english": "grandparent",
+      "topic": "household",
+      "lesson": 1
+    },
+    {
+      "id": "w238",
+      "tetun": "bei-oan",
+      "english": "grandchild",
+      "topic": "household",
+      "lesson": 1
+    },
+    {
+      "id": "w239",
+      "tetun": "uma kain",
+      "english": "household",
+      "topic": "household",
+      "lesson": 1
+    },
+    {
+      "id": "w240",
+      "tetun": "kaben",
+      "english": "spouse, husband, wife; marry",
+      "topic": "household",
+      "lesson": 1
+    },
+    {
+      "id": "w241",
+      "tetun": "katuas-oan",
+      "english": "husband",
+      "topic": "household",
+      "lesson": 2
+    },
+    {
+      "id": "w242",
+      "tetun": "ferik-oan",
+      "english": "wife",
+      "topic": "household",
+      "lesson": 2
+    },
+    {
+      "id": "w243",
+      "tetun": "namoradu",
+      "english": "boyfriend, fiancé",
+      "topic": "household",
+      "lesson": 2
+    },
+    {
+      "id": "w244",
+      "tetun": "namorada",
+      "english": "girlfriend, fiancée",
+      "topic": "household",
+      "lesson": 2
+    },
+    {
+      "id": "w245",
+      "tetun": "feto",
+      "english": "woman, girl, female",
+      "topic": "household",
+      "lesson": 2
+    },
+    {
+      "id": "w246",
+      "tetun": "mane",
+      "english": "man, boy, male",
+      "topic": "household",
+      "lesson": 2
+    },
+    {
+      "id": "w247",
+      "tetun": "katuas",
+      "english": "mature man",
+      "topic": "household",
+      "lesson": 2
+    },
+    {
+      "id": "w248",
+      "tetun": "ferik",
+      "english": "mature woman",
+      "topic": "household",
+      "lesson": 2
+    },
+    {
+      "id": "w249",
+      "tetun": "klosan",
+      "english": "single person",
+      "topic": "household",
+      "lesson": 2
+    },
+    {
+      "id": "w250",
+      "tetun": "kaben nain",
+      "english": "married person",
+      "topic": "household",
+      "lesson": 2
+    },
+    {
+      "id": "w251",
+      "tetun": "hakiak",
+      "english": "adopt, raise",
+      "topic": "household",
+      "lesson": 3
+    },
+    {
+      "id": "w252",
+      "tetun": "iha",
+      "english": "have",
+      "topic": "household",
+      "lesson": 3
+    },
+    {
+      "id": "w253",
+      "tetun": "moris",
+      "english": "live, be born",
+      "topic": "household",
+      "lesson": 3
+    },
+    {
+      "id": "w254",
+      "tetun": "mate",
+      "english": "die, dead",
+      "topic": "household",
+      "lesson": 3
+    },
+    {
+      "id": "w255",
+      "tetun": "hamutuk",
+      "english": "together",
+      "topic": "household",
+      "lesson": 3
+    },
+    {
+      "id": "w256",
+      "tetun": "nia",
+      "english": "POSSESSIVE MARKER",
+      "topic": "household",
+      "lesson": 3
+    },
+    {
+      "id": "w257",
+      "tetun": "see nia ...?",
+      "english": "whose......?",
+      "topic": "household",
+      "lesson": 3
+    },
+    {
+      "id": "w258",
+      "tetun": "uitoan",
+      "english": "a little, a few",
+      "topic": "household",
+      "lesson": 3
+    },
+    {
+      "id": "w259",
+      "tetun": "hotu",
+      "english": "all",
+      "topic": "household",
+      "lesson": 3
+    },
+    {
+      "id": "w260",
+      "tetun": "hotu-hotu",
+      "english": "all",
+      "topic": "household",
+      "lesson": 3
+    },
+    {
+      "id": "w261",
+      "tetun": "loke",
+      "english": "open, turn on",
+      "topic": "plans",
+      "lesson": 1
+    },
+    {
+      "id": "w262",
+      "tetun": "taka",
+      "english": "close, turn off, cover",
+      "topic": "plans",
+      "lesson": 1
+    },
+    {
+      "id": "w263",
+      "tetun": "haruka",
+      "english": "command, send",
+      "topic": "plans",
+      "lesson": 1
+    },
+    {
+      "id": "w264",
+      "tetun": "joga",
+      "english": "play, gamble",
+      "topic": "plans",
+      "lesson": 1
+    },
+    {
+      "id": "w265",
+      "tetun": "hadeer",
+      "english": "get up, wake up",
+      "topic": "plans",
+      "lesson": 1
+    },
+    {
+      "id": "w266",
+      "tetun": "toba",
+      "english": "lie down, sleep",
+      "topic": "plans",
+      "lesson": 1
+    },
+    {
+      "id": "w267",
+      "tetun": "dukur",
+      "english": "sleep",
+      "topic": "plans",
+      "lesson": 1
+    },
+    {
+      "id": "w268",
+      "tetun": "matan dukur",
+      "english": "sleepy",
+      "topic": "plans",
+      "lesson": 1
+    },
+    {
+      "id": "w269",
+      "tetun": "hariis tasi",
+      "english": "play in the sea",
+      "topic": "plans",
+      "lesson": 1
+    },
+    {
+      "id": "w270",
+      "tetun": "nani",
+      "english": "swim (to somewhere)",
+      "topic": "plans",
+      "lesson": 1
+    },
+    {
+      "id": "w271",
+      "tetun": "ahi",
+      "english": "fire, electricity",
+      "topic": "plans",
+      "lesson": 2
+    },
+    {
+      "id": "w272",
+      "tetun": "odamatan",
+      "english": "door",
+      "topic": "plans",
+      "lesson": 2
+    },
+    {
+      "id": "w273",
+      "tetun": "misa",
+      "english": "Catholic mass",
+      "topic": "plans",
+      "lesson": 2
+    },
+    {
+      "id": "w274",
+      "tetun": "planu",
+      "english": "plan",
+      "topic": "plans",
+      "lesson": 2
+    },
+    {
+      "id": "w275",
+      "tetun": "tasi ibun",
+      "english": "coast, shore, beach",
+      "topic": "plans",
+      "lesson": 2
+    },
+    {
+      "id": "w276",
+      "tetun": "Domingu",
+      "english": "Sunday",
+      "topic": "plans",
+      "lesson": 2
+    },
+    {
+      "id": "w277",
+      "tetun": "Segunda",
+      "english": "Monday",
+      "topic": "plans",
+      "lesson": 2
+    },
+    {
+      "id": "w278",
+      "tetun": "Tersa",
+      "english": "Tuesday",
+      "topic": "plans",
+      "lesson": 2
+    },
+    {
+      "id": "w279",
+      "tetun": "Kuarta",
+      "english": "Wednesday",
+      "topic": "plans",
+      "lesson": 2
+    },
+    {
+      "id": "w280",
+      "tetun": "Kinta",
+      "english": "Thursday",
+      "topic": "plans",
+      "lesson": 2
+    },
+    {
+      "id": "w281",
+      "tetun": "Sesta",
+      "english": "Friday",
+      "topic": "plans",
+      "lesson": 3
+    },
+    {
+      "id": "w282",
+      "tetun": "Sábadu",
+      "english": "Saturday",
+      "topic": "plans",
+      "lesson": 3
+    },
+    {
+      "id": "w283",
+      "tetun": "atu",
+      "english": "about to, want to, intend to",
+      "topic": "plans",
+      "lesson": 3
+    },
+    {
+      "id": "w284",
+      "tetun": "ho",
+      "english": "with; and",
+      "topic": "plans",
+      "lesson": 3
+    },
+    {
+      "id": "w285",
+      "tetun": "sira",
+      "english": "PLURAL DEFINITE MARKER",
+      "topic": "plans",
+      "lesson": 3
+    },
+    {
+      "id": "w286",
+      "tetun": "mos",
+      "english": "also",
+      "topic": "plans",
+      "lesson": 3
+    },
+    {
+      "id": "w287",
+      "tetun": "fasi, fase",
+      "english": "wash",
+      "topic": "plans",
+      "lesson": 3
+    },
+    {
+      "id": "w288",
+      "tetun": "habai",
+      "english": "dry in the sun",
+      "topic": "plans",
+      "lesson": 3
+    },
+    {
+      "id": "w289",
+      "tetun": "hamoos",
+      "english": "clean",
+      "topic": "plans",
+      "lesson": 3
+    },
+    {
+      "id": "w290",
+      "tetun": "estrika",
+      "english": "iron (clothes); Noun iron",
+      "topic": "plans",
+      "lesson": 3
+    },
+    {
+      "id": "w291",
+      "tetun": "ajuda, tulun",
+      "english": "help, assist",
+      "topic": "activities",
+      "lesson": 1
+    },
+    {
+      "id": "w292",
+      "tetun": "sosa",
+      "english": "buy",
+      "topic": "activities",
+      "lesson": 1
+    },
+    {
+      "id": "w293",
+      "tetun": "faan",
+      "english": "sell",
+      "topic": "activities",
+      "lesson": 1
+    },
+    {
+      "id": "w294",
+      "tetun": "tein",
+      "english": "cook",
+      "topic": "activities",
+      "lesson": 1
+    },
+    {
+      "id": "w295",
+      "tetun": "foer",
+      "english": "dirty",
+      "topic": "activities",
+      "lesson": 1
+    },
+    {
+      "id": "w296",
+      "tetun": "moos",
+      "english": "clean",
+      "topic": "activities",
+      "lesson": 1
+    },
+    {
+      "id": "w297",
+      "tetun": "labarik",
+      "english": "child (to about 15 years)",
+      "topic": "activities",
+      "lesson": 1
+    },
+    {
+      "id": "w298",
+      "tetun": "bebee",
+      "english": "baby",
+      "topic": "activities",
+      "lesson": 1
+    },
+    {
+      "id": "w299",
+      "tetun": "vizinyu",
+      "english": "neighbour",
+      "topic": "activities",
+      "lesson": 1
+    },
+    {
+      "id": "w300",
+      "tetun": "ospitál",
+      "english": "hospital",
+      "topic": "activities",
+      "lesson": 1
+    },
+    {
+      "id": "w301",
+      "tetun": "hariis fatin",
+      "english": "bathroom",
+      "topic": "activities",
+      "lesson": 2
+    },
+    {
+      "id": "w302",
+      "tetun": "sentina",
+      "english": "toilet",
+      "topic": "activities",
+      "lesson": 2
+    },
+    {
+      "id": "w303",
+      "tetun": "ropa",
+      "english": "clothes",
+      "topic": "activities",
+      "lesson": 2
+    },
+    {
+      "id": "w304",
+      "tetun": "osan",
+      "english": "money",
+      "topic": "activities",
+      "lesson": 2
+    },
+    {
+      "id": "w305",
+      "tetun": "atividade",
+      "english": "activity",
+      "topic": "activities",
+      "lesson": 2
+    },
+    {
+      "id": "w306",
+      "tetun": "foin",
+      "english": "only just, very recently",
+      "topic": "activities",
+      "lesson": 2
+    },
+    {
+      "id": "w307",
+      "tetun": "hela",
+      "english": "currently (CONTINUOUS)",
+      "topic": "activities",
+      "lesson": 2
+    },
+    {
+      "id": "w308",
+      "tetun": "nusaa?",
+      "english": "what is happening? why?",
+      "topic": "activities",
+      "lesson": 2
+    },
+    {
+      "id": "w309",
+      "tetun": "fali",
+      "english": "again, back",
+      "topic": "activities",
+      "lesson": 2
+    },
+    {
+      "id": "w310",
+      "tetun": "fila fali",
+      "english": "return; again",
+      "topic": "activities",
+      "lesson": 2
+    },
+    {
+      "id": "w311",
+      "tetun": "hahaan",
+      "english": "food",
+      "topic": "eat",
+      "lesson": 1
+    },
+    {
+      "id": "w312",
+      "tetun": "etu",
+      "english": "cooked rice",
+      "topic": "eat",
+      "lesson": 1
+    },
+    {
+      "id": "w313",
+      "tetun": "foos",
+      "english": "uncooked husked rice",
+      "topic": "eat",
+      "lesson": 1
+    },
+    {
+      "id": "w314",
+      "tetun": "naan",
+      "english": "meat",
+      "topic": "eat",
+      "lesson": 1
+    },
+    {
+      "id": "w315",
+      "tetun": "ikan",
+      "english": "fish",
+      "topic": "eat",
+      "lesson": 1
+    },
+    {
+      "id": "w316",
+      "tetun": "modo",
+      "english": "vegetables; any cooked dish eaten with rice",
+      "topic": "eat",
+      "lesson": 1
+    },
+    {
+      "id": "w317",
+      "tetun": "aifuan",
+      "english": "fruit",
+      "topic": "eat",
+      "lesson": 1
+    },
+    {
+      "id": "w318",
+      "tetun": "batar",
+      "english": "maize (corn)",
+      "topic": "eat",
+      "lesson": 1
+    },
+    {
+      "id": "w319",
+      "tetun": "ai farina",
+      "english": "cassava",
+      "topic": "eat",
+      "lesson": 1
+    },
+    {
+      "id": "w320",
+      "tetun": "paun",
+      "english": "bread",
+      "topic": "eat",
+      "lesson": 1
+    },
+    {
+      "id": "w321",
+      "tetun": "xá",
+      "english": "tea",
+      "topic": "eat",
+      "lesson": 2
+    },
+    {
+      "id": "w322",
+      "tetun": "kafé",
+      "english": "coffee",
+      "topic": "eat",
+      "lesson": 2
+    },
+    {
+      "id": "w323",
+      "tetun": "hasai",
+      "english": " remove, take out",
+      "topic": "eat",
+      "lesson": 2
+    },
+    {
+      "id": "w324",
+      "tetun": "hataan",
+      "english": "reply, agree",
+      "topic": "eat",
+      "lesson": 2
+    },
+    {
+      "id": "w325",
+      "tetun": "bosu",
+      "english": "full (from eating)",
+      "topic": "eat",
+      "lesson": 2
+    },
+    {
+      "id": "w326",
+      "tetun": "too",
+      "english": "enough",
+      "topic": "eat",
+      "lesson": 2
+    },
+    {
+      "id": "w327",
+      "tetun": "tan",
+      "english": "more, again, additional",
+      "topic": "eat",
+      "lesson": 2
+    },
+    {
+      "id": "w328",
+      "tetun": "seidauk",
+      "english": "not yet",
+      "topic": "eat",
+      "lesson": 2
+    },
+    {
+      "id": "w329",
+      "tetun": "barak",
+      "english": "many,  much",
+      "topic": "eat",
+      "lesson": 2
+    },
+    {
+      "id": "w330",
+      "tetun": "lai",
+      "english": "first (before something else)",
+      "topic": "eat",
+      "lesson": 2
+    }
+  ]
+}
