@@ -28,8 +28,8 @@ The app must be served over HTTP: ES modules and the service worker do not work 
 
 ## Game rules that are easy to break
 
-- Round r shows the first r pairs of a shuffled lesson, so lesson length comes from the data. Direction alternates each round, starting Tetun to English.
-- A correct match is worth 100 / (1+2+…+n) points, a wrong tap costs 1, and the score stays between 0 and 100. `LessonGame.score` is a getter that rounds the raw sum, because 55 fractional additions otherwise leave a perfect game at 99.99999999999991.
+- Round 1 shows two pairs of a shuffled lesson and each round adds one up to the whole lesson (`roundSize`), so lesson length comes from the data. A single pair is no challenge, so a lesson never starts with one unless it only has one. Direction alternates each round, starting Tetun to English. The game screen explains how to play.
+- A correct match is worth 100 divided by the matches in a perfect game (`matchesInLesson`: 2+3+…+n, which is 54 for ten pairs), a wrong tap costs 1, and the score stays between 0 and 100. `LessonGame.score` is a getter that rounds the raw sum, because 55 fractional additions otherwise leave a perfect game at 99.99999999999991.
 - Levels: under 50 is 1, 50-69 is 2, 70-98 is 3, 99-100 is 4. A saved lesson level is only ever raised.
 - Two entries match when they share an id, an English meaning or a Tetun word (`isMatch`), because the player cannot tell such cards apart. This covers the equal glosses (`lian Indonézia`/`Bahasa`, `hotu`/`hotu-hotu`) and the eleven Tetun words that appear twice with different English (`ita`, `nia`, ...).
 - A wrong tap records a miss against the prompt's entry id. When a game finishes, each word with no miss anywhere in that game (`LessonGame.cleanIds()`) has its count lowered once. Lowering on every correct match would cancel every miss, and lowering every round cancels them too, because a word is shown in every later round. "Words I keep missing" is entries with 3 or more misses.

@@ -1,6 +1,23 @@
-/** Points for one correct match in a lesson of n pairs: 100 split over 1+2+…+n matches. */
-export function pointsPerMatch(n) {
-  return 100 / ((n * (n + 1)) / 2);
+const FIRST_ROUND = 2; // a single pair is no challenge, so a lesson starts with two
+
+/** How many pairs round `round` shows in a lesson of `total` pairs: 2, 3, 4, … up to the whole lesson. */
+export function roundSize(round, total) {
+  return Math.min(total, round + FIRST_ROUND - 1);
+}
+
+/** Matches made in a perfect game of `total` pairs, summed over all rounds (54 for ten pairs). */
+export function matchesInLesson(total) {
+  let sum = 0;
+  for (let round = 1; ; round++) {
+    const size = roundSize(round, total);
+    sum += size;
+    if (size >= total) return sum;
+  }
+}
+
+/** Points for one correct match: 100 split over every match in the lesson. */
+export function pointsPerMatch(total) {
+  return 100 / matchesInLesson(total);
 }
 
 /** Level for a finished lesson: 1 under 50, 2 under 70, 3 under 99, otherwise 4. */
@@ -16,7 +33,7 @@ export function isMatch(a, b) {
   return a.id === b.id || a.english === b.english || a.tetun === b.tetun;
 }
 
-// Removes the floating-point drift from adding 55 fractional points, so a perfect game is exactly 100.
+// Removes the floating-point drift from adding dozens of fractional points, so a perfect game is exactly 100.
 const tidy = (score) => Math.round(score * 1e6) / 1e6;
 
 function shuffled(list, rng) {
@@ -29,8 +46,9 @@ function shuffled(list, rng) {
 }
 
 /**
- * One play of one lesson. Round r shows the first r pairs of a shuffled list,
- * and the direction alternates each round starting with Tetun to English.
+ * One play of one lesson. Round r shows the first roundSize(r) pairs of a shuffled list
+ * (two in round 1, one more each round), and the direction alternates each round
+ * starting with Tetun to English.
  * Make a new LessonGame every time a lesson is opened.
  */
 export class LessonGame {
@@ -47,6 +65,11 @@ export class LessonGame {
     this.finished = false;
   }
 
+  /** How many rounds a perfect game takes. */
+  get rounds() {
+    return Math.max(1, this.total - FIRST_ROUND + 1);
+  }
+
   /** Score from 0 to 100. */
   get score() {
     return tidy(this._score);
@@ -57,7 +80,7 @@ export class LessonGame {
   }
 
   deal() {
-    const prompts = this._order.slice(0, this.round);
+    const prompts = this._order.slice(0, roundSize(this.round, this.total));
     if (!this._answers) this._answers = shuffled(prompts, this._rng);
     return {
       direction: this.round % 2 === 1 ? 't2e' : 'e2t',
@@ -68,7 +91,7 @@ export class LessonGame {
 
   submit(promptId, answerId) {
     if (this.finished) throw new RangeError('lesson is finished');
-    const inRound = this._order.slice(0, this.round);
+    const inRound = this._order.slice(0, roundSize(this.round, this.total));
     const prompt = inRound.find((e) => e.id === promptId);
     const answer = inRound.find((e) => e.id === answerId);
     if (!prompt || !answer) throw new RangeError('id is not in the current round');
@@ -84,14 +107,15 @@ export class LessonGame {
       this._score = Math.max(0, this._score - 1);
       this.misses.push(promptId);
     }
-    const roundDone = this._matchedPrompts.size === this.round;
-    const lessonDone = roundDone && this.round === this.total;
+    const size = roundSize(this.round, this.total);
+    const roundDone = this._matchedPrompts.size === size;
+    const lessonDone = roundDone && size === this.total;
     if (lessonDone) this.finished = true;
     return { correct, roundDone, lessonDone };
   }
 
   nextRound() {
-    if (this.finished || this._matchedPrompts.size !== this.round) {
+    if (this.finished || this._matchedPrompts.size !== roundSize(this.round, this.total)) {
       throw new RangeError('round is not complete');
     }
     this.round += 1;

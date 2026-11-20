@@ -1,7 +1,7 @@
 // Classic (non-module) service worker. CACHE_VERSION is a hash of the precached files: after changing any
 // of them (or the list below) run `npm run stamp`. `npm test` fails if the version is out of date.
 const CACHE_PREFIX = 'tetun-';
-const CACHE_VERSION = 'tetun-e69919b8d7';
+const CACHE_VERSION = 'tetun-5cd5500047';
 const PRECACHE_URLS = [
   "./",
   "index.html",

@@ -73,7 +73,7 @@ The two glosses that collide today (`lian Indonézia`/`Bahasa` both "Indonesian 
 ### Practise
 
 - A matching game built on tapping: tap a card on one side, then its match on the other. Drag-and-drop is dropped.
-- Keeps what worked: a lesson starts with one pair and adds one per round up to ten, the direction alternates between Tetun-to-English and English-to-Tetun, and the end result is one of four levels (under 50%, 50-69, 70-98, 99-100 "ninja").
+- Keeps what worked: a lesson adds one pair per round up to the whole lesson. It starts with two pairs, not one (changed on 2026-11-21 after Peter's feedback: a single pair is no challenge), and the screen explains how to play, the direction alternates between Tetun-to-English and English-to-Tetun, and the end result is one of four levels (under 50%, 50-69, 70-98, 99-100 "ninja").
 - Lesson length is read from the data, not hardcoded to 10.
 - A word you miss is recorded, and a "words I keep missing" set can be practised.
 - The behaviour the 2014 code got wrong (score never below zero, restarting a lesson resets score and bar, a lower result never lowers a saved level) is specified here and tested.
@@ -119,7 +119,7 @@ The old jQuery game is replaced and then removed. `TETUN-002` to `TETUN-007`, `T
 - Hosting is any static HTTPS host. This document does not pick one.
 - The existing 33 lessons and 12 topics are kept as they are. Reorganising them is not part of v1.
 - Words you keep missing are tracked per entry, as a small step beyond today's per-lesson levels. A miss is a wrong tap against that entry's id. A word counts as "kept missing" at a simple threshold the builder picks (for example three misses), and a correct match in practice lowers the count. Fuller spaced repetition is out of scope.
-- Scoring scales with lesson length. A correct match is worth 100 divided by the sum of 1 to n points for a lesson of n pairs (about 1.818 when n is 10, as today), a wrong tap costs 1, and the score stays between 0 and 100.
+- Scoring scales with lesson length. A correct match is worth 100 divided by the number of matches in a perfect game, which is 2+3+…+n for a lesson of n pairs (54 matches and about 1.852 points when n is 10; a lesson of one pair is a single match), a wrong tap costs 1, and the score stays between 0 and 100.
 - The app is built and tested locally only. It is not deployed publicly until the DIT answer is in, as the Data licence section says.
 - Logic that can be tested without a browser (search matching, scoring, level calculation, data validation) goes in separate modules and is tested with Node's built-in test runner, so there is still no dependency. The service worker and touch behaviour are checked by hand on a real phone, including in aeroplane mode.
 

@@ -27,7 +27,7 @@ The vocabulary is grouped into 12 topics and 33 lessons, with 330 Tetun and Engl
 
 **Phrasebook.** Search in Tetun or English, with or without accents and capitals, or browse by topic. Tap a word for a large view, with a link to report a mistake.
 
-**Practise.** Each lesson is a tap-to-match game: tap a word, then its match. The first round shows one pair and every round after that adds another until the whole lesson is on the table. The direction flips each round, Tetun to English and then English to Tetun. Correct matches fill the progress bar and a wrong tap costs a point. Your best result for each lesson is saved on your phone, and words you keep getting wrong are collected under "Words I keep missing".
+**Practise.** Each lesson is a tap-to-match game: tap a word, then its match. The first round shows two pairs, and every round after that adds another until the whole lesson is on the table. The direction flips each round, Tetun to English and then English to Tetun. Correct matches fill the progress bar and a wrong tap costs a point. Your best result for each lesson is saved on your phone, and words you keep getting wrong are collected under "Words I keep missing".
 
 ## Running it
 

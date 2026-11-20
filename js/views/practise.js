@@ -35,6 +35,7 @@ export function renderPractise(root, data, store) {
           h('span', { class: 'title' }, lesson.title));
         }))));
     }
+    children.unshift(h('p', { class: 'intro' }, 'Pick a lesson. Each one is a matching game: tap a word, then tap its match. It starts with two pairs and adds one more each round, so by the end you are matching the whole lesson. Your best score for each lesson is saved on this device.'));
     root.replaceChildren(h('section', { class: 'practise' }, children));
   }
 
@@ -50,6 +51,8 @@ export function renderPractise(root, data, store) {
     const fill = h('div', { class: 'fill' });
     const bar = h('div', { class: 'bar', role: 'progressbar', 'aria-label': 'Score', 'aria-valuemin': 0, 'aria-valuemax': 100, 'aria-valuenow': 0 }, fill, barText);
     const roundInfo = h('p', { class: 'round' });
+    const help = h('p', { class: 'help' });
+    const hint = h('p', { class: 'hint' });
     const board = h('div', { class: 'board' });
 
     const updateBar = () => {
@@ -67,8 +70,10 @@ export function renderPractise(root, data, store) {
       selected = null;
       pButtons.clear();
       aButtons.clear();
-      roundInfo.textContent = `Round ${game.round} of ${game.total}`;
-      announce(roundInfo.textContent);
+      roundInfo.textContent = `Round ${game.round} of ${game.rounds}`;
+      hint.textContent = direction === 't2e' ? 'Tap a Tetun word, then tap its English meaning.' : 'Tap an English word, then tap its Tetun meaning.';
+      help.textContent = game.round === 1 ? 'Match every pair to reach the next round, which adds one more pair. A wrong tap costs a point.' : '';
+      announce(`${roundInfo.textContent}. ${hint.textContent}`);
       const column = (list, side, buttons, onpick) => h('div', { class: 'col' }, list.map((entry) => {
         const attrs = { type: 'button', class: 'card', lang: lang(side), onclick: () => onpick(entry.id) };
         if (buttons === pButtons) attrs['aria-pressed'] = 'false';
@@ -143,7 +148,7 @@ export function renderPractise(root, data, store) {
       h('div', { class: 'game-head' },
         h('h2', {}, title),
         h('button', { type: 'button', class: 'exit', onclick: () => { active = false; drawList(); } }, 'Exit')),
-      bar, roundInfo, board));
+      bar, roundInfo, help, hint, board));
     drawRound();
   }
 

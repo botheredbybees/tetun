@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { LessonGame, pointsPerMatch, levelFor, isMatch } from '../js/game.js';
+import { LessonGame, pointsPerMatch, matchesInLesson, roundSize, levelFor, isMatch } from '../js/game.js';
 
 const make = (n) =>
   Array.from({ length: n }, (_, i) => ({ id: `e${i + 1}`, tetun: `t${i + 1}`, english: `en${i + 1}`, topic: 't', lesson: 1 }));
@@ -23,9 +23,38 @@ function playPerfect(game) {
   }
 }
 
-test('pointsPerMatch(10) is about 1.81818 and the points of a perfect game sum to 100', () => {
-  near(pointsPerMatch(10), 1.81818, 0.001);
-  for (const n of [1, 3, 7, 10]) near(pointsPerMatch(n) * ((n * (n + 1)) / 2), 100);
+/** Play every round except the last, so the game is on its final round. */
+function toFinalRound(game) {
+  while (game.deal().prompts.length < game.total) {
+    for (const p of game.deal().prompts) game.submit(p.id, p.id);
+    game.nextRound();
+  }
+  return game;
+}
+
+test('the first round has two pairs (one if the lesson has one) and each round adds one', () => {
+  assert.equal(roundSize(1, 10), 2);
+  assert.equal(roundSize(2, 10), 3);
+  assert.equal(roundSize(9, 10), 10);
+  assert.equal(roundSize(10, 10), 10);
+  assert.equal(roundSize(1, 2), 2);
+  assert.equal(roundSize(1, 1), 1);
+  assert.equal(new LessonGame(make(10), seeded(1)).rounds, 9);
+  assert.equal(new LessonGame(make(3), seeded(1)).rounds, 2);
+  assert.equal(new LessonGame(make(2), seeded(1)).rounds, 1);
+  assert.equal(new LessonGame(make(1), seeded(1)).rounds, 1);
+});
+
+test('matchesInLesson counts every match across the rounds', () => {
+  assert.equal(matchesInLesson(1), 1);
+  assert.equal(matchesInLesson(2), 2);
+  assert.equal(matchesInLesson(3), 5);
+  assert.equal(matchesInLesson(10), 54);
+});
+
+test('pointsPerMatch(10) is 100/54 and the points of a perfect game sum to 100', () => {
+  near(pointsPerMatch(10), 1.85185, 0.001);
+  for (const n of [1, 2, 3, 7, 10]) near(pointsPerMatch(n) * matchesInLesson(n), 100);
 });
 
 test('levelFor uses the 50 / 70 / 99 thresholds', () => {
@@ -53,7 +82,7 @@ test('a 1-pair game finishes after one correct submit with score 100', () => {
   near(game.score, 100);
 });
 
-test('a 3-pair game uses rounds of 1, 2 and 3 pairs and alternates direction', () => {
+test('a 3-pair game uses rounds of 2 and 3 pairs and alternates direction', () => {
   const game = new LessonGame(make(3), seeded(2));
   const sizes = [];
   const directions = [];
@@ -67,16 +96,24 @@ test('a 3-pair game uses rounds of 1, 2 and 3 pairs and alternates direction', (
     if (last.lessonDone) break;
     game.nextRound();
   }
-  assert.deepEqual(sizes, [1, 2, 3]);
-  assert.deepEqual(directions, ['t2e', 'e2t', 't2e']);
+  assert.deepEqual(sizes, [2, 3]);
+  assert.deepEqual(directions, ['t2e', 'e2t']);
+  near(game.score, 100);
+});
+
+test('a 2-pair game is a single round and finishes at 100', () => {
+  const game = new LessonGame(make(2), seeded(2));
+  const { prompts } = game.deal();
+  assert.equal(prompts.length, 2);
+  assert.deepEqual(game.submit(prompts[0].id, prompts[0].id), { correct: true, roundDone: false, lessonDone: false });
+  assert.deepEqual(game.submit(prompts[1].id, prompts[1].id), { correct: true, roundDone: true, lessonDone: true });
   near(game.score, 100);
 });
 
 test('wrong taps cost 1 point, are recorded, and the score never goes below 0', () => {
   const game = new LessonGame(make(10), seeded(3));
-  const first = game.deal().prompts[0];
-  game.submit(first.id, first.id);
-  near(game.score, pointsPerMatch(10));
+  for (const p of game.deal().prompts) game.submit(p.id, p.id);
+  near(game.score, 2 * pointsPerMatch(10));
   game.nextRound();
   const { prompts, answers } = game.deal();
   const wrong = answers.find((a) => a.id !== prompts[0].id);
@@ -102,13 +139,9 @@ test('equal English glosses are interchangeable in both directions', () => {
   assert.equal(isMatch(a, b), true);
   assert.equal(isMatch(b, a), true);
   assert.equal(isMatch(a, c), false);
-  // final round of a 2-pair game is e2t, final round of a 3-pair game is t2e
+  // the final round of a 2-pair game is round 1 (Tetun to English), of a 3-pair game round 2 (English to Tetun)
   for (const entries of [[a, b], [a, b, c]]) {
-    const game = new LessonGame(entries, seeded(5));
-    for (let r = 1; r < entries.length; r++) {
-      for (const p of game.deal().prompts) game.submit(p.id, p.id);
-      game.nextRound();
-    }
+    const game = toFinalRound(new LessonGame(entries, seeded(5)));
     const { prompts } = game.deal();
     const pa = prompts.find((p) => p.id === 'a');
     const result = game.submit(pa.id, 'b');
@@ -161,16 +194,12 @@ test('a perfect game scores exactly 100 for every lesson length, with no floatin
 test('cleanIds lists the entries with no wrong tap anywhere in the game', () => {
   const entries = make(3);
   const game = new LessonGame(entries, seeded(10));
-  let missed;
-  for (let r = 1; r <= 3; r++) {
-    const { prompts, answers } = game.deal();
-    if (r === 2) {
-      missed = prompts[0];
-      game.submit(missed.id, answers.find((a) => a.id !== missed.id).id);
-    }
-    for (const p of prompts) game.submit(p.id, p.id);
-    if (r < 3) game.nextRound();
-  }
+  for (const p of game.deal().prompts) game.submit(p.id, p.id);
+  game.nextRound();
+  const { prompts, answers } = game.deal();
+  const missed = prompts[0];
+  game.submit(missed.id, answers.find((a) => a.id !== missed.id).id);
+  for (const p of prompts) game.submit(p.id, p.id);
   assert.equal(game.finished, true);
   assert.deepEqual(game.cleanIds().sort(), entries.map((e) => e.id).filter((id) => id !== missed.id).sort());
 });
@@ -189,8 +218,6 @@ test('entries with the same Tetun word but different English are interchangeable
   assert.equal(isMatch(b, a), true);
   assert.equal(isMatch(a, c), false);
   const game = new LessonGame([a, b], seeded(12));
-  for (const p of game.deal().prompts) game.submit(p.id, p.id);
-  game.nextRound();
   const { prompts } = game.deal();
   const first = prompts[0].id;
   const other = first === 'a' ? 'b' : 'a';
