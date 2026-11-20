@@ -1,0 +1,41 @@
+:root { --green: #1f6f5c; --ink: #1d2b27; --soft: #eef4f1; --line: #cfdcd6; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 0 0 5.5rem; color: var(--ink); background: #fff;
+  font: 1rem/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+header { background: var(--green); color: #fff; padding: .75rem 1rem; }
+h1 { margin: 0; font-size: 1.25rem; }
+h2 { font-size: 1.1rem; margin: 1rem 0 .5rem; }
+main { max-width: 40rem; margin: 0 auto; padding: 1rem; }
+button, input { font: inherit; }
+#search {
+  width: 100%; min-height: 3rem; padding: .5rem .75rem; font-size: 1.125rem; /* 16px+ stops iOS zooming in */
+  border: 2px solid var(--line); border-radius: .5rem;
+}
+.list, .topics { display: grid; gap: .5rem; margin-top: 1rem; }
+.topics { grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); }
+.entry, .topic, .back, #tabs button {
+  min-height: 3rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--soft);
+  color: inherit; cursor: pointer; text-align: left; padding: .5rem .75rem;
+}
+.entry { display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
+.entry .tetun, .topic .tetun { font-weight: 700; }
+.topic { display: flex; flex-direction: column; align-items: flex-start; gap: .125rem; }
+.english { color: #4a5c56; }
+.back { margin-top: 1rem; }
+.detail { margin-top: 1rem; }
+.big-tetun { font-size: 2.25rem; font-weight: 700; margin: 1.5rem 0 .25rem; overflow-wrap: anywhere; }
+.big-english { font-size: 1.5rem; margin: 0 0 1rem; }
+.meta { color: #4a5c56; }
+.report { display: inline-block; min-height: 3rem; padding: .75rem 0; color: var(--green); }
+.empty { margin-top: 1rem; }
+#credit { max-width: 40rem; margin: 0 auto; padding: 0 1rem 1rem; font-size: .8125rem; color: #4a5c56; }
+#tabs {
+  position: fixed; left: 0; right: 0; bottom: 0; display: flex; gap: .5rem;
+  padding: .5rem .5rem calc(.5rem + env(safe-area-inset-bottom)); background: #fff; border-top: 1px solid var(--line);
+}
+#tabs button { flex: 1; text-align: center; font-weight: 600; }
+#tabs button[aria-current="page"] { background: var(--green); border-color: var(--green); color: #fff; }
+.banner { position: fixed; left: .5rem; right: .5rem; bottom: 4.75rem; padding: .75rem; background: var(--ink); color: #fff; border-radius: .5rem; }
+.banner button { margin-left: .75rem; min-height: 2.75rem; }
