@@ -45,6 +45,36 @@ for (const name of Object.keys(views)) {
   document.getElementById(`tab-${name}`).addEventListener('click', () => showView(name));
 }
 
+// Offline support. A new version waits until the visitor accepts the banner; it never reloads on its own.
+function showUpdateBanner(onAccept) {
+  const banner = h('div', { class: 'banner', role: 'status' },
+    'An update is ready.',
+    h('button', { type: 'button', onclick: () => { banner.remove(); onAccept(); } }, 'Reload'));
+  document.body.append(banner);
+}
+
+function registerWorker() {
+  if (!('serviceWorker' in navigator)) return;
+  let reloadRequested = false;
+  const offer = (worker) => showUpdateBanner(() => {
+    reloadRequested = true;
+    worker.postMessage({ type: 'SKIP_WAITING' });
+  });
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (reloadRequested) location.reload();
+  });
+  navigator.serviceWorker.register('sw.js').then((registration) => {
+    if (registration.waiting && navigator.serviceWorker.controller) offer(registration.waiting);
+    registration.addEventListener('updatefound', () => {
+      const worker = registration.installing;
+      worker.addEventListener('statechange', () => {
+        if (worker.state === 'installed' && navigator.serviceWorker.controller) offer(worker);
+      });
+    });
+  }).catch((error) => console.error('Service worker registration failed', error));
+}
+registerWorker();
+
 try {
   data = await loadWords();
   showView('phrasebook');
