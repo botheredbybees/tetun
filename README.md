@@ -2,6 +2,8 @@
 
 A phone-friendly phrasebook and practice game for everyday Tetun, the national language of Timor-Leste. Once it has loaded it keeps working without a signal.
 
+Try it: https://botheredbybees.github.io/tetun/
+
 ## Why it exists
 
 Before taking my two sons to Timor-Leste for a motorcycle holiday, I wanted enough Tetun to greet people, ask for directions and apologise politely when we inevitably got lost. Phrasebooks are fine at a desk but not much use when the words need to come out of your mouth unprompted, so I built a game to drill them in before we left.

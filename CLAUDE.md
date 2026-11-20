@@ -37,13 +37,13 @@ The app must be served over HTTP: ES modules and the service worker do not work 
 
 ## Data source and release
 
-`data/` holds source material only, not loaded at runtime: the Tetun-English lexicon (`.rtf` and the `Tetun - English/` Lexique Pro project, marked © Dili Institute of Technology 2011, by Catharina Williams-van Klinken), a LIFT XML spec PDF, and two CSVs. The word list was compiled from it by a learner. No permission to reuse it is recorded, and the lexicon files are in the public repo. Do not deploy publicly or add licence text for the word data until the dictionary author has answered (tracker issue `TETUN-013`).
+`data/` holds source material only, not loaded at runtime: the Tetun-English lexicon (`.rtf` and the `Tetun - English/` Lexique Pro project, marked © Dili Institute of Technology 2011, by Catharina Williams-van Klinken), a LIFT XML spec PDF, and two CSVs. The word list was compiled from it by a learner. No permission to reuse it is recorded, and the lexicon files are in the public repo. Peter chose on 2026-11-21 to publish the app anyway so the dictionary author can try it, and asked her for permission and a licence preference by email (tracker issue `TETUN-013`). Until she answers, do not add licence text for the word data. If she objects, take the site down (command above) and remove the files she names.
 
-## Hosting (prepared, not switched on)
+## Hosting
 
-The chosen host is GitHub Pages, as a project site at `https://botheredbybees.github.io/tetun/` (every URL in the app is relative, so the sub-path works; checked locally, including offline). It is **not enabled**. `.github/workflows/pages.yml` is manual-only (`workflow_dispatch`): it runs `npm test`, builds `_site/` with `tools/build-site.mjs`, and deploys that folder. The site contains only the precached files, `sw.js` and `.nojekyll`, so `data/`, `docs/`, `tools/` and `test/` are never published. That matters because `data/` holds the DIT lexicon and a file named `lift_13-xml-specification.pdf:Zone.Identifier` (a Windows download artefact whose colon can break checkouts and Pages builds). Do not deploy the repo root.
+GitHub Pages, live since 2026-11-21 at `https://botheredbybees.github.io/tetun/` (a project site, so the app runs under the `/tetun/` sub-path; every URL in it is relative). Pages uses the "GitHub Actions" source and `.github/workflows/pages.yml` is manual-only, so a push does not publish anything. To publish a change: push `master`, then `gh workflow run pages.yml`. The workflow runs `npm test`, builds `_site/` with `tools/build-site.mjs`, and deploys that folder. The site contains only the precached files, `sw.js` and `.nojekyll`, so `data/`, `docs/`, `tools/` and `test/` are never published. That matters because `data/` holds the DIT lexicon and a file named `lift_13-xml-specification.pdf:Zone.Identifier` (a Windows download artefact whose colon can break checkouts and Pages builds). Never deploy the repo root.
 
-To go live, once the dictionary author has agreed: Settings > Pages > Source: GitHub Actions, then run the workflow from the Actions tab. The workflow has not been run, so the first run is untested.
+To take the site down: `gh api -X DELETE repos/botheredbybees/tetun/pages`.
 
 ## Conventions
 
