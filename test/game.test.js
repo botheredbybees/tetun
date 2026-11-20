@@ -49,7 +49,7 @@ test('a 1-pair game finishes after one correct submit with score 100', () => {
   const game = new LessonGame(make(1), seeded(1));
   const { prompts } = game.deal();
   const result = game.submit(prompts[0].id, prompts[0].id);
-  assert.deepEqual(result, { correct: true, firstTry: true, roundDone: true, lessonDone: true });
+  assert.deepEqual(result, { correct: true, roundDone: true, lessonDone: true });
   near(game.score, 100);
 });
 
@@ -158,19 +158,42 @@ test('a perfect game scores exactly 100 for every lesson length, with no floatin
   }
 });
 
-test('firstTry is true only for a correct match with no earlier miss on that prompt in the same round', () => {
-  const game = new LessonGame(make(10), seeded(9));
-  const r1 = game.deal().prompts[0];
-  assert.equal(game.submit(r1.id, r1.id).firstTry, true);
+test('cleanIds lists the entries with no wrong tap anywhere in the game', () => {
+  const entries = make(3);
+  const game = new LessonGame(entries, seeded(10));
+  let missed;
+  for (let r = 1; r <= 3; r++) {
+    const { prompts, answers } = game.deal();
+    if (r === 2) {
+      missed = prompts[0];
+      game.submit(missed.id, answers.find((a) => a.id !== missed.id).id);
+    }
+    for (const p of prompts) game.submit(p.id, p.id);
+    if (r < 3) game.nextRound();
+  }
+  assert.equal(game.finished, true);
+  assert.deepEqual(game.cleanIds().sort(), entries.map((e) => e.id).filter((id) => id !== missed.id).sort());
+});
+
+test('cleanIds is every entry for a perfect game', () => {
+  const entries = make(4);
+  const game = playPerfect(new LessonGame(entries, seeded(11)));
+  assert.deepEqual(game.cleanIds().sort(), entries.map((e) => e.id).sort());
+});
+
+test('entries with the same Tetun word but different English are interchangeable', () => {
+  const a = { id: 'a', tetun: 'ita', english: 'you (plural)', topic: 't', lesson: 1 };
+  const b = { id: 'b', tetun: 'ita', english: 'we', topic: 't', lesson: 1 };
+  const c = { id: 'c', tetun: 'nia', english: 'he, she', topic: 't', lesson: 1 };
+  assert.equal(isMatch(a, b), true);
+  assert.equal(isMatch(b, a), true);
+  assert.equal(isMatch(a, c), false);
+  const game = new LessonGame([a, b], seeded(12));
+  for (const p of game.deal().prompts) game.submit(p.id, p.id);
   game.nextRound();
-  const { prompts, answers } = game.deal();
-  const [p1, p2] = prompts;
-  const wrongAnswer = answers.find((a) => a.id !== p1.id);
-  const miss = game.submit(p1.id, wrongAnswer.id);
-  assert.equal(miss.correct, false);
-  assert.equal(miss.firstTry, false);
-  assert.equal(game.submit(p1.id, p1.id).firstTry, false);
-  assert.equal(game.submit(p2.id, p2.id).firstTry, true);
-  game.nextRound();
-  for (const p of game.deal().prompts) assert.equal(game.submit(p.id, p.id).firstTry, true);
+  const { prompts } = game.deal();
+  const first = prompts[0].id;
+  const other = first === 'a' ? 'b' : 'a';
+  assert.equal(game.submit(first, other).correct, true);
+  assert.deepEqual(game.misses, []);
 });

@@ -11,9 +11,9 @@ export function levelFor(score) {
   return 4;
 }
 
-/** Two entries match if they are the same entry or share an English meaning. */
+/** Two entries match if they are the same entry or look identical on either side (same English or same Tetun). */
 export function isMatch(a, b) {
-  return a.id === b.id || a.english === b.english;
+  return a.id === b.id || a.english === b.english || a.tetun === b.tetun;
 }
 
 // Removes the floating-point drift from adding 55 fractional points, so a perfect game is exactly 100.
@@ -40,7 +40,6 @@ export class LessonGame {
     this._answers = null;
     this._matchedPrompts = new Set();
     this._usedAnswers = new Set();
-    this._missedThisRound = new Set();
     this.total = entries.length;
     this.round = 1;
     this._score = 0;
@@ -77,7 +76,6 @@ export class LessonGame {
       throw new RangeError('already matched');
     }
     const correct = isMatch(prompt, answer);
-    const firstTry = correct && !this._missedThisRound.has(promptId);
     if (correct) {
       this._matchedPrompts.add(promptId);
       this._usedAnswers.add(answerId);
@@ -85,12 +83,11 @@ export class LessonGame {
     } else {
       this._score = Math.max(0, this._score - 1);
       this.misses.push(promptId);
-      this._missedThisRound.add(promptId);
     }
     const roundDone = this._matchedPrompts.size === this.round;
     const lessonDone = roundDone && this.round === this.total;
     if (lessonDone) this.finished = true;
-    return { correct, firstTry, roundDone, lessonDone };
+    return { correct, roundDone, lessonDone };
   }
 
   nextRound() {
@@ -101,6 +98,11 @@ export class LessonGame {
     this._answers = null;
     this._matchedPrompts = new Set();
     this._usedAnswers = new Set();
-    this._missedThisRound = new Set();
+  }
+
+  /** Ids of entries with no wrong tap anywhere in this game. Call it once the game is finished. */
+  cleanIds() {
+    const missed = new Set(this.misses);
+    return this._order.map((e) => e.id).filter((id) => !missed.has(id));
   }
 }

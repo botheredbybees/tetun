@@ -56,3 +56,28 @@ test('real data: bondia is found from either side', () => {
   assert.ok(ids(search(entries, 'bondia')).length > 0);
   assert.ok(search(entries, 'good morning').some((x) => x.tetun === 'bondia'));
 });
+
+test('normalise drops apostrophes and turns other punctuation into spaces, keeping hyphens inside words', () => {
+  assert.equal(normalise('Don’t.'), 'dont');
+  assert.equal(normalise("o'clock"), 'oclock');
+  assert.equal(normalise('live, stay,reside'), 'live stay reside');
+  assert.equal(normalise('loro-loron'), 'loro-loron');
+});
+
+test('ordinary punctuation in the query does not stop a word being found', () => {
+  const entries = [
+    e('a', 'bondia', 'good morning'),
+    e('b', 'ita-nia', 'what'),
+    e('c', 'la bele', 'don’t'),
+    e('d', 'oras', 'o’clock'),
+    e('e', 'hela', 'live, stay,reside'),
+  ];
+  assert.deepEqual(ids(search(entries, 'good morning.')), ['a']);
+  assert.deepEqual(ids(search(entries, 'what?')), ['b']);
+  assert.deepEqual(ids(search(entries, "don't")), ['c']);
+  assert.deepEqual(ids(search(entries, 'don’t')), ['c']);
+  assert.deepEqual(ids(search(entries, 'dont')), ['c']);
+  assert.deepEqual(ids(search(entries, "o'clock")), ['d']);
+  assert.deepEqual(ids(search(entries, 'stay')), ['e']);
+  assert.deepEqual(ids(search(entries, 'reside')), ['e']);
+});

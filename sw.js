@@ -1,5 +1,7 @@
-// Classic (non-module) service worker. Bump CACHE_VERSION whenever any precached file changes.
-const CACHE_VERSION = 'tetun-v1';
+// Classic (non-module) service worker. CACHE_VERSION is a hash of the precached files: after changing any
+// of them (or the list below) run `npm run stamp`. `npm test` fails if the version is out of date.
+const CACHE_PREFIX = 'tetun-';
+const CACHE_VERSION = 'tetun-b712534d0b';
 const PRECACHE_URLS = [
   "./",
   "index.html",
@@ -57,14 +59,17 @@ const PRECACHE_URLS = [
 ];
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE_VERSION).then((cache) => cache.addAll(PRECACHE_URLS)));
+  // `reload` skips the browser's HTTP cache, so a new version never stores stale copies of old files.
+  const requests = PRECACHE_URLS.map((url) => new Request(new URL(url, self.location.href).href, { cache: 'reload' }));
+  event.waitUntil(caches.open(CACHE_VERSION).then((cache) => cache.addAll(requests)));
 });
 
 // Replace the old cache as a whole, so a visitor never gets half of one version and half of another.
+// Only this app's caches are touched: other sites on the same origin keep theirs.
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys()
-      .then((keys) => Promise.all(keys.filter((key) => key !== CACHE_VERSION).map((key) => caches.delete(key))))
+      .then((keys) => Promise.all(keys.filter((key) => key.startsWith(CACHE_PREFIX) && key !== CACHE_VERSION).map((key) => caches.delete(key))))
       .then(() => self.clients.claim())
   );
 });
@@ -72,7 +77,11 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const request = event.request;
   if (request.method !== 'GET' || new URL(request.url).origin !== self.location.origin) return;
-  event.respondWith(caches.match(request, { ignoreSearch: true }).then((hit) => hit || fetch(request)));
+  event.respondWith(
+    caches.open(CACHE_VERSION)
+      .then((cache) => cache.match(request, { ignoreSearch: true }))
+      .then((hit) => hit || fetch(request))
+  );
 });
 
 // The page asks for this only after the visitor accepts the update banner.

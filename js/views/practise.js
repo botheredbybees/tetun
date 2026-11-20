@@ -1,4 +1,4 @@
-import { h } from '../dom.js';
+import { h, announce } from '../dom.js';
 import { LessonGame } from '../game.js';
 import { keptMissing, recordHit, recordLevel, recordMiss } from '../progress.js';
 
@@ -68,20 +68,28 @@ export function renderPractise(root, data, store) {
       pButtons.clear();
       aButtons.clear();
       roundInfo.textContent = `Round ${game.round} of ${game.total}`;
+      announce(roundInfo.textContent);
       const column = (list, side, buttons, onpick) => h('div', { class: 'col' }, list.map((entry) => {
-        const button = h('button', { type: 'button', class: 'card', lang: lang(side), onclick: () => onpick(entry.id) }, entry[side]);
+        const attrs = { type: 'button', class: 'card', lang: lang(side), onclick: () => onpick(entry.id) };
+        if (buttons === pButtons) attrs['aria-pressed'] = 'false';
+        const button = h('button', attrs, entry[side]);
         buttons.set(entry.id, button);
         return button;
       }));
       board.replaceChildren(column(prompts, pSide, pButtons, pickPrompt), column(answers, aSide, aButtons, pickAnswer));
+      pButtons.values().next().value?.focus();
     }
 
     function pickPrompt(id) {
       const button = pButtons.get(id);
       if (busy || button.disabled) return;
-      if (selected) pButtons.get(selected).classList.remove('selected');
+      if (selected) {
+        pButtons.get(selected).classList.remove('selected');
+        pButtons.get(selected).setAttribute('aria-pressed', 'false');
+      }
       selected = id;
       button.classList.add('selected');
+      button.setAttribute('aria-pressed', 'true');
     }
 
     function pickAnswer(id) {
@@ -91,12 +99,14 @@ export function renderPractise(root, data, store) {
       const prompt = pButtons.get(promptId);
       const result = game.submit(promptId, id);
       prompt.classList.remove('selected');
+      prompt.setAttribute('aria-pressed', 'false');
       selected = null;
       if (result.correct) {
+        announce('Correct');
         for (const b of [prompt, answer]) { b.disabled = true; b.classList.add('matched'); }
-        if (result.firstTry) store.set(recordHit(store.get(), promptId));
       } else {
         store.set(recordMiss(store.get(), promptId));
+        announce('Wrong, try again');
         answer.classList.add('wrong');
         setTimeout(() => answer.classList.remove('wrong'), 400);
       }
@@ -116,6 +126,8 @@ export function renderPractise(root, data, store) {
 
     function finish() {
       if (lessonId) store.set(recordLevel(store.get(), lessonId, game.level));
+      // A word's miss count drops once per game, and only if it was not missed in that game.
+      store.set(game.cleanIds().reduce((p, id) => recordHit(p, id), store.get()));
       active = false;
       const heading = h('h2', { tabindex: '-1' }, 'Finished!');
       root.replaceChildren(h('section', { class: 'result' },

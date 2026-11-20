@@ -1,3 +1,11 @@
+/** Say something to screen readers without moving focus (the #status line in index.html). */
+export function announce(text) {
+  const status = document.getElementById('status');
+  if (!status) return;
+  status.textContent = '';
+  setTimeout(() => { status.textContent = text; }, 50);
+}
+
 /** Build an element. Attributes starting with "on" become event listeners; `class` sets the class name. */
 export function h(tag, attrs = {}, ...children) {
   const node = document.createElement(tag);

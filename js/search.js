@@ -1,11 +1,17 @@
-/** Lowercase, strip diacritics, trim and collapse whitespace. */
+/**
+ * Lowercase, strip diacritics, drop apostrophes, turn other punctuation into spaces
+ * (hyphens inside words stay) and collapse whitespace.
+ */
 export function normalise(text) {
   return String(text)
     .normalize('NFD')
     .replace(/\p{M}/gu, '')
     .toLowerCase()
-    .trim()
-    .replace(/\s+/g, ' ');
+    .replace(/['\u2018\u2019`\u00b4]/g, '')
+    .replace(/[^\p{L}\p{N}\s-]/gu, ' ')
+    .replace(/(^|\s)-+|-+(?=\s|$)/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 function rank(fields, q) {
