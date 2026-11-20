@@ -2,6 +2,7 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "stamp": "node tools/stamp.mjs"
+    "stamp": "node tools/stamp.mjs",
+    "site": "node tools/build-site.mjs _site"
   }
 }
